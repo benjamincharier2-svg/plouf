@@ -9,8 +9,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        plouf: {
+          DEFAULT: "#1A00CC",
+          dark:    "#1200A0",
+          light:   "#EEE9FF",
+        },
       },
     },
   },
