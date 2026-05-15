@@ -26,12 +26,13 @@ export default function InterventionsPage() {
               <Image src="/logo-bleu.png" alt="plouf!" width={80} height={36} className="object-contain" />
             </Link>
             <nav className="hidden md:flex items-center gap-6 text-sm text-gray-600">
-              <Link href="/interventions" className="text-[#1A00CC] font-semibold">Interventions</Link>
-              <Link href="/eau-verte" className="hover:text-[#1A00CC] transition-colors">Eau verte</Link>
-              <Link href="/faq" className="hover:text-[#1A00CC] transition-colors">FAQ</Link>
+              <Link href="/tarifs" className="hover:text-plouf transition-colors">Tarifs</Link>
+
+              <Link href="/conseils" className="hover:text-plouf transition-colors">Nos conseils</Link>
+              <Link href="/a-propos" className="hover:text-plouf transition-colors">À propos</Link>
             </nav>
           </div>
-          <Link href="/reserver" className="bg-[#1A00CC] text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-[#1200A0] transition-colors">
+          <Link href="/reserver" className="bg-plouf text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-plouf-dark transition-colors">
             Réserver →
           </Link>
         </div>
@@ -42,9 +43,9 @@ export default function InterventionsPage() {
 
           {/* Hero */}
           <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">Interventions ponctuelles</p>
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-5 leading-tight">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-5 leading-tight font-title">
             Un passage unique.{" "}
-            <span className="underline decoration-wavy decoration-[#1A00CC] underline-offset-4">Sans abonnement.</span>
+            <span className="underline decoration-wavy decoration-plouf underline-offset-4">Sans abonnement.</span>
           </h1>
           <p className="text-gray-600 text-lg mb-12 max-w-xl leading-relaxed">
             Vous avez besoin d&apos;une intervention précise — pas d&apos;un contrat
@@ -53,10 +54,10 @@ export default function InterventionsPage() {
           </p>
 
           {/* Table */}
-          <div className="border border-gray-200 rounded-2xl overflow-hidden mb-5 shadow-sm">
+          <div className="border border-plouf-glacier rounded-2xl overflow-hidden mb-5 shadow-sm">
             <table className="w-full">
               <thead>
-                <tr className="bg-gray-50 border-b border-gray-200">
+                <tr className="bg-plouf-glacier/30 border-b border-plouf-glacier">
                   <th className="px-5 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wide">Prestation</th>
                   <th className="px-5 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wide hidden md:table-cell">Ce que ça couvre</th>
                   <th className="px-5 py-4 text-right text-xs font-semibold text-gray-500 uppercase tracking-wide">Tarif</th>
@@ -66,17 +67,17 @@ export default function InterventionsPage() {
               </thead>
               <tbody>
                 {interventions.map((item, i) => (
-                  <tr key={item.label} className={`border-b border-gray-100 last:border-0 ${i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}`}>
+                  <tr key={item.label} className={`border-b border-plouf-glacier/40 last:border-0 ${i % 2 === 0 ? "bg-white" : "bg-plouf-glacier/10"}`}>
                     <td className="px-5 py-4">
                       <span className="font-semibold text-gray-900 text-sm">{item.label}</span>
                     </td>
                     <td className="px-5 py-4 text-gray-500 text-sm hidden md:table-cell">{item.desc}</td>
-                    <td className="px-5 py-4 text-right font-bold text-[#1A00CC] text-sm whitespace-nowrap">{item.tarif}</td>
+                    <td className="px-5 py-4 text-right font-bold text-plouf text-sm whitespace-nowrap">{item.tarif}</td>
                     <td className="px-5 py-4 text-right text-gray-400 text-xs whitespace-nowrap hidden md:table-cell">{item.duree}</td>
                     <td className="px-5 py-4 text-right">
                       <Link
-                        href="/eau-verte"
-                        className="text-xs border border-gray-200 text-gray-600 px-3 py-1.5 rounded-full hover:border-[#1A00CC] hover:text-[#1A00CC] transition-colors whitespace-nowrap"
+                        href="/reserver"
+                        className="text-xs border border-plouf-glacier text-gray-600 px-3 py-1.5 rounded-full hover:border-plouf hover:text-plouf transition-colors whitespace-nowrap"
                       >
                         Réserver →
                       </Link>
@@ -92,10 +93,10 @@ export default function InterventionsPage() {
           <div className="grid md:grid-cols-3 gap-5 mb-10">
             {[
               { icon: "💳", titre: "Paiement après", desc: "Pas de pré-paiement. Le débit Stripe se fait après l'intervention." },
-              { icon: "📋", titre: "Rapport WhatsApp", desc: "Photos + mesures envoyées juste après. Même pour un passage unique." },
+              { icon: "🔔", titre: "Rapport de passage", desc: "Photos + mesures envoyés juste après. Même pour un passage unique." },
               { icon: "🛒", titre: "Bon d'achat saisonnier", desc: "Si vous basculez sur l'abonnement plus tard, cette intervention est déduite." },
             ].map(item => (
-              <div key={item.titre} className="bg-gray-50 rounded-2xl p-5 border border-gray-100">
+              <div key={item.titre} className="bg-plouf-glacier/20 rounded-2xl p-5 border border-plouf-glacier">
                 <div className="text-2xl mb-3">{item.icon}</div>
                 <div className="font-semibold text-gray-900 text-sm mb-2">{item.titre}</div>
                 <div className="text-gray-500 text-xs leading-relaxed">{item.desc}</div>
@@ -104,14 +105,14 @@ export default function InterventionsPage() {
           </div>
 
           {/* Devis CTA */}
-          <div className="bg-[#EEE9FF] border border-[#1A00CC]/20 rounded-2xl p-7 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="bg-plouf-lavande border border-plouf/20 rounded-2xl p-7 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
-              <h2 className="font-bold text-gray-900 text-xl mb-1">Un cas pas dans la liste ?</h2>
+              <h2 className="font-bold text-gray-900 text-xl mb-1 font-title">Un cas pas dans la liste ?</h2>
               <p className="text-gray-500 text-sm">Décrivez-nous, on revient avec un devis fixe sous 24h.</p>
             </div>
             <Link
               href="mailto:contact@ploufpiscines.fr"
-              className="bg-[#1A00CC] text-white font-bold px-7 py-4 rounded-xl hover:bg-[#1200A0] transition-colors whitespace-nowrap"
+              className="bg-plouf text-white font-bold px-7 py-4 rounded-xl hover:bg-plouf-dark transition-colors whitespace-nowrap"
             >
               Demander un devis →
             </Link>

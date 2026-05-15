@@ -61,9 +61,15 @@ export default function EauVertePage() {
           <Link href="/">
             <Image src="/logo-bleu.png" alt="plouf!" width={90} height={40} className="object-contain" />
           </Link>
+          <nav className="hidden md:flex items-center gap-6 text-sm text-gray-600">
+            <Link href="/tarifs" className="hover:text-plouf transition-colors">Tarifs</Link>
+            <Link href="/eau-verte" className="text-plouf font-semibold">Eau verte</Link>
+            <Link href="/conseils" className="hover:text-plouf transition-colors">Nos conseils</Link>
+            <Link href="/a-propos" className="hover:text-plouf transition-colors">À propos</Link>
+          </nav>
           <Link
             href="/reserver"
-            className="bg-[#1A00CC] text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-[#1200A0] transition-colors"
+            className="bg-plouf text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-plouf-dark transition-colors"
           >
             Réserver
           </Link>
@@ -80,13 +86,13 @@ export default function EauVertePage() {
           </div>
 
           {/* Titre */}
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight font-title">
             Eau verte ?<br />
-            <span className="text-[#1A00CC]">On s'en occupe.</span>
+            <span className="text-plouf">On s&apos;en occupe.</span>
           </h1>
 
           <p className="text-gray-600 text-lg mb-10 leading-relaxed">
-            L'eau verte est une urgence — algues, bactéries, risque sanitaire.
+            L&apos;eau verte est une urgence — algues, bactéries, risque sanitaire.
             Décrivez-nous votre situation et notre équipe vous contacte sous 2h
             pour organiser une intervention rapide.
           </p>
@@ -98,10 +104,10 @@ export default function EauVertePage() {
               { emoji: "🧪", label: "Traitement", value: "choc + algicide" },
               { emoji: "✅", label: "Résultat", value: "garanti" },
             ].map((item) => (
-              <div key={item.label} className="bg-[#EEE9FF] rounded-xl p-4 text-center">
+              <div key={item.label} className="bg-plouf-glacier/30 border border-plouf-glacier rounded-xl p-4 text-center">
                 <div className="text-2xl mb-1">{item.emoji}</div>
                 <div className="text-xs text-gray-500">{item.label}</div>
-                <div className="text-sm font-bold text-[#1A00CC]">{item.value}</div>
+                <div className="text-sm font-bold text-plouf">{item.value}</div>
               </div>
             ))}
           </div>
@@ -110,16 +116,16 @@ export default function EauVertePage() {
             /* Succès */
             <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center">
               <div className="text-4xl mb-4">✅</div>
-              <h2 className="text-xl font-bold text-gray-900 mb-2">Message reçu !</h2>
+              <h2 className="text-xl font-bold text-gray-900 mb-2 font-title">Message reçu !</h2>
               <p className="text-gray-600 mb-6">
                 Notre équipe va analyser votre situation et vous contacte{" "}
-                <strong>sous 2h</strong> pour organiser l'intervention.
+                <strong>sous 2h</strong> pour organiser l&apos;intervention.
               </p>
               <Link
                 href="/"
-                className="inline-block bg-[#1A00CC] text-white font-semibold px-6 py-3 rounded-full hover:bg-[#1200A0] transition-colors"
+                className="inline-block bg-plouf text-white font-semibold px-6 py-3 rounded-full hover:bg-plouf-dark transition-colors"
               >
-                Retour à l'accueil
+                Retour à l&apos;accueil
               </Link>
             </div>
           ) : (
@@ -137,7 +143,7 @@ export default function EauVertePage() {
                     onChange={handleChange}
                     required
                     placeholder="Marie"
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1A00CC]/30 focus:border-[#1A00CC] transition-all"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-plouf/30 focus:border-plouf transition-all"
                   />
                 </div>
                 <div>
@@ -151,7 +157,7 @@ export default function EauVertePage() {
                     onChange={handleChange}
                     required
                     placeholder="Dupont"
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1A00CC]/30 focus:border-[#1A00CC] transition-all"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-plouf/30 focus:border-plouf transition-all"
                   />
                 </div>
               </div>
@@ -167,7 +173,7 @@ export default function EauVertePage() {
                   onChange={handleChange}
                   required
                   placeholder="marie@email.com"
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1A00CC]/30 focus:border-[#1A00CC] transition-all"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-plouf/30 focus:border-plouf transition-all"
                 />
               </div>
 
@@ -182,7 +188,7 @@ export default function EauVertePage() {
                   onChange={handleChange}
                   required
                   placeholder="06 00 00 00 00"
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1A00CC]/30 focus:border-[#1A00CC] transition-all"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-plouf/30 focus:border-plouf transition-all"
                 />
               </div>
 
@@ -197,7 +203,7 @@ export default function EauVertePage() {
                   required
                   rows={4}
                   placeholder="Ex: piscine de 8x4m, eau verte depuis 1 semaine, traitement au chlore habituellement. Ville : Bordeaux."
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#1A00CC]/30 focus:border-[#1A00CC] transition-all resize-none"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-plouf/30 focus:border-plouf transition-all resize-none"
                 />
               </div>
 
@@ -206,7 +212,7 @@ export default function EauVertePage() {
                   Photo de votre piscine{" "}
                   <span className="text-gray-400 font-normal">(optionnel)</span>
                 </label>
-                <div className="border-2 border-dashed border-gray-200 rounded-xl p-6 text-center cursor-pointer hover:border-[#1A00CC]/40 transition-colors">
+                <div className="border-2 border-dashed border-plouf-glacier rounded-xl p-6 text-center cursor-pointer hover:border-plouf/40 transition-colors">
                   <input
                     type="file"
                     accept="image/*"
@@ -216,7 +222,7 @@ export default function EauVertePage() {
                   />
                   <label htmlFor="photo-upload" className="cursor-pointer">
                     {photo ? (
-                      <div className="text-[#1A00CC] font-medium">
+                      <div className="text-plouf font-medium">
                         📷 {photo.name}
                       </div>
                     ) : (
@@ -243,7 +249,7 @@ export default function EauVertePage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-[#1A00CC] text-white font-bold py-4 rounded-xl hover:bg-[#1200A0] transition-colors disabled:opacity-50 text-lg"
+                className="w-full bg-plouf text-white font-bold py-4 rounded-xl hover:bg-plouf-dark transition-colors disabled:opacity-50 text-lg"
               >
                 {loading ? "Envoi en cours..." : "Envoyer — on vous rappelle sous 2h"}
               </button>

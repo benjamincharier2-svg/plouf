@@ -2,10 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: system-ui, -apple-system, sans-serif;
+@layer base {
+  /* Titres → Poppins */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-poppins), system-ui, sans-serif;
+  }
+
+  /* Corps → Inter */
+  body {
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
 }
 
-.font-serif {
-  font-family: Georgia, "Times New Roman", serif;
+@layer utilities {
+  .font-title {
+    font-family: var(--font-poppins), system-ui, sans-serif;
+  }
 }

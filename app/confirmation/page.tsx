@@ -27,7 +27,7 @@ export default function ConfirmationPage() {
             </svg>
           </div>
 
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">
+          <h1 className="text-3xl font-bold text-gray-900 mb-4 font-title">
             Paiement confirmé !
           </h1>
 
@@ -37,8 +37,8 @@ export default function ConfirmationPage() {
           </p>
 
           {/* Récap étapes */}
-          <div className="bg-gray-50 rounded-2xl p-6 mb-8 text-left space-y-4">
-            <h2 className="font-semibold text-gray-800 mb-3">Et maintenant ?</h2>
+          <div className="bg-plouf-glacier/20 border border-plouf-glacier rounded-2xl p-6 mb-8 text-left space-y-4">
+            <h2 className="font-semibold text-gray-800 mb-3 font-title">Et maintenant ?</h2>
             {[
               {
                 step: "1",
@@ -57,7 +57,7 @@ export default function ConfirmationPage() {
               },
             ].map((item) => (
               <div key={item.step} className="flex gap-4 items-start">
-                <div className="w-8 h-8 rounded-full bg-[#1A00CC] text-white text-sm font-bold flex items-center justify-center flex-shrink-0">
+                <div className="w-8 h-8 rounded-full bg-plouf text-white text-sm font-bold flex items-center justify-center flex-shrink-0">
                   {item.step}
                 </div>
                 <div>
@@ -69,10 +69,10 @@ export default function ConfirmationPage() {
           </div>
 
           {/* Contact */}
-          <div className="bg-[#EEE9FF] rounded-2xl p-5 mb-8">
+          <div className="bg-plouf-lavande rounded-2xl p-5 mb-8">
             <p className="text-sm text-gray-600">
               Une question ? Écrivez-nous à{" "}
-              <a href="mailto:contact@ploufpiscines.fr" className="text-[#1A00CC] font-medium underline">
+              <a href="mailto:contact@ploufpiscines.fr" className="text-plouf font-medium underline">
                 contact@ploufpiscines.fr
               </a>
             </p>
@@ -80,9 +80,9 @@ export default function ConfirmationPage() {
 
           <Link
             href="/"
-            className="inline-block text-[#1A00CC] font-medium hover:underline text-sm"
+            className="inline-block text-plouf font-medium hover:underline text-sm"
           >
-            ← Retour à l'accueil
+            ← Retour à l&apos;accueil
           </Link>
         </div>
       </main>

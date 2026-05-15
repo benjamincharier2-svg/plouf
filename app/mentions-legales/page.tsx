@@ -31,15 +31,17 @@ export default function MentionsLegalesPage() {
           <section className="mb-10">
             <h2 className="text-xl font-bold text-gray-900 mb-4">1. Mentions légales</h2>
             <div className="bg-gray-50 rounded-xl p-6 text-sm text-gray-700 space-y-2">
-              <p><strong>Éditeur du site :</strong> Plouf Piscines</p>
-              <p><strong>Forme juridique :</strong> En cours d'immatriculation</p>
+              <p><strong>Raison sociale :</strong> INTENDANCE</p>
+              <p><strong>Forme juridique :</strong> SAS (Société par actions simplifiée)</p>
+              <p><strong>Capital social :</strong> 50 000,00 €</p>
+              <p><strong>SIREN :</strong> 102 221 744</p>
+              <p><strong>SIRET (siège) :</strong> 102 221 744 00018</p>
+              <p><strong>N° TVA intracommunautaire :</strong> FR35102221744</p>
+              <p><strong>RCS :</strong> 102 221 744 R.C.S. Bordeaux</p>
+              <p><strong>Siège social :</strong> 15 rue Thiac, 33000 Bordeaux</p>
+              <p><strong>Dirigeants :</strong> Bastien Beaubat, Alexandre Viallet</p>
               <p><strong>Email :</strong> contact@ploufpiscines.fr</p>
-              <p><strong>Site web :</strong> ploufpiscines.fr</p>
-              <p><strong>Directeur de publication :</strong> Plouf Piscines</p>
               <p><strong>Hébergeur :</strong> Vercel Inc. — 440 N Barranca Ave #4133, Covina, CA 91723, USA</p>
-              <p className="text-gray-500 text-xs mt-4 italic">
-                Note : Le numéro SIRET sera ajouté dès finalisation de l'immatriculation.
-              </p>
             </div>
           </section>
 

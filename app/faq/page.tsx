@@ -7,7 +7,7 @@ import Link from "next/link";
 const questions = [
   {
     q: "Vous venez vraiment sans que je sois là ?",
-    a: "Oui. Un accès au portail ou au bassin et c'est bon. Vous recevez le rapport WhatsApp après le passage avec les photos et les mesures. Pas besoin d'être présent.",
+    a: "Oui. Un accès au portail ou au bassin et c'est bon. Vous recevez le rapport de passage après la visite avec les photos et les mesures. Pas besoin d'être présent.",
   },
   {
     q: "Que se passe-t-il si je ne suis pas content du passage ?",
@@ -19,7 +19,7 @@ const questions = [
   },
   {
     q: "Combien de temps dure un passage ?",
-    a: "30 à 60 min selon la taille du bassin et l'état de l'eau. Vous êtes prévenu par WhatsApp à l'arrivée et au départ.",
+    a: "30 à 60 min selon la taille du bassin et l'état de l'eau. Vous êtes prévenu par notification à l'arrivée et au départ.",
   },
   {
     q: "Mon eau est trouble, c'est grave ?",
@@ -47,11 +47,10 @@ export default function FAQPage() {
             <Image src="/logo-bleu.png" alt="plouf!" width={80} height={36} className="object-contain" />
           </Link>
           <nav className="hidden md:flex items-center gap-6 text-sm text-gray-600">
-            <Link href="/interventions" className="hover:text-[#1A00CC] transition-colors">Interventions</Link>
-            <Link href="/eau-verte" className="hover:text-[#1A00CC] transition-colors">Eau verte</Link>
-            <Link href="/faq" className="text-[#1A00CC] font-semibold">FAQ</Link>
+            <Link href="/tarifs" className="hover:text-plouf transition-colors">Tarifs</Link>
+            <Link href="/faq" className="text-plouf font-semibold">FAQ</Link>
           </nav>
-          <Link href="/reserver" className="bg-[#1A00CC] text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-[#1200A0] transition-colors">
+          <Link href="/reserver" className="bg-plouf text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-plouf-dark transition-colors">
             Réserver →
           </Link>
         </div>
@@ -63,9 +62,9 @@ export default function FAQPage() {
           {/* Hero */}
           <div className="mb-12">
             <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">Page /FAQ</p>
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-title">
               Les questions{" "}
-              <span className="underline decoration-wavy decoration-[#1A00CC] underline-offset-4">
+              <span className="underline decoration-wavy decoration-plouf underline-offset-4">
                 qu&apos;on nous pose vraiment.
               </span>
             </h1>
@@ -81,20 +80,20 @@ export default function FAQPage() {
               <div
                 key={i}
                 className={`border rounded-2xl overflow-hidden transition-all ${
-                  open === i ? "border-[#1A00CC]/30 shadow-sm" : "border-gray-100"
+                  open === i ? "border-plouf/30 shadow-sm" : "border-plouf-glacier"
                 }`}
               >
                 <button
                   onClick={() => setOpen(open === i ? null : i)}
-                  className="w-full flex items-start justify-between gap-4 p-5 text-left hover:bg-gray-50 transition-colors"
+                  className="w-full flex items-start justify-between gap-4 p-5 text-left hover:bg-plouf-glacier/10 transition-colors"
                 >
                   <span className="font-semibold text-gray-900 text-sm leading-snug">{item.q}</span>
-                  <span className="text-[#1A00CC] font-bold text-lg flex-shrink-0 mt-0.5">
+                  <span className="text-plouf font-bold text-lg flex-shrink-0 mt-0.5">
                     {open === i ? "−" : "+"}
                   </span>
                 </button>
                 {open === i && (
-                  <div className="px-5 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4">
+                  <div className="px-5 pb-5 text-gray-600 text-sm leading-relaxed border-t border-plouf-glacier pt-4">
                     {item.a}
                   </div>
                 )}
@@ -103,21 +102,21 @@ export default function FAQPage() {
           </div>
 
           {/* CTA contact */}
-          <div className="bg-[#EEE9FF] border border-[#1A00CC]/20 rounded-2xl p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="bg-plouf-lavande border border-plouf/20 rounded-2xl p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
-              <h2 className="font-bold text-gray-900 text-xl mb-1">Pas trouvé votre réponse ?</h2>
-              <p className="text-gray-500 text-sm">On répond sous 20 min, même le week-end.</p>
+              <h2 className="font-bold text-gray-900 text-xl mb-1 font-title">Pas trouvé votre réponse ?</h2>
+              <p className="text-gray-500 text-sm">On répond sous 2h, même le week-end.</p>
             </div>
             <div className="flex gap-3">
               <a
-                href="https://wa.me/33556000000"
+                href="tel:0554540880"
                 className="flex items-center gap-2 border-2 border-gray-900 text-gray-900 font-semibold px-5 py-3 rounded-xl hover:bg-gray-900 hover:text-white transition-colors text-sm"
               >
-                💬 WhatsApp
+                📞 05 54 54 08 80
               </a>
               <a
                 href="mailto:contact@ploufpiscines.fr"
-                className="flex items-center gap-2 bg-[#1A00CC] text-white font-semibold px-5 py-3 rounded-xl hover:bg-[#1200A0] transition-colors text-sm"
+                className="flex items-center gap-2 bg-plouf text-white font-semibold px-5 py-3 rounded-xl hover:bg-plouf-dark transition-colors text-sm"
               >
                 ✉ Email
               </a>
