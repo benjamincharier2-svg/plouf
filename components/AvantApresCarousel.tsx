@@ -7,12 +7,9 @@ import Image from "next/image"
 // Mettez null pour afficher un placeholder coloré.
 
 const ITEMS: { avant: string | null; apres: string | null; label: string }[] = [
-  { avant: "/avant-1.jpg",  apres: null,         label: "Eau verte → cristalline" },
-  { avant: "/avant-2.jpg",  apres: null,         label: "Remise en route printemps" },
-  { avant: null,            apres: null,         label: "Hivernage → saison" },
-  { avant: null,            apres: null,         label: "Filtre colmaté → eau limpide" },
-  { avant: null,            apres: null,         label: "Bassin vert → eau parfaite" },
-  { avant: null,            apres: null,         label: "Algues → eau cristalline" },
+  { avant: "/avant-1.jpg", apres: "/apres-1.jpg", label: "Eau verte → cristalline" },
+  { avant: "/avant-2.jpg", apres: "/apres-2.jpg", label: "Remise en route printemps" },
+  { avant: "/avant-3.jpg", apres: "/apres-3.jpg", label: "Hivernage → saison" },
 ]
 
 // Dupliquer pour le défilement sans couture
