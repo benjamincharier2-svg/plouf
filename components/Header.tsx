@@ -94,7 +94,7 @@ export default function Header() {
             </Link>
             <div className="mt-3 text-center text-sm text-gray-400">
               <a href="tel:0554540880" className="hover:text-plouf transition-colors">
-                📞 05 54 54 08 80
+                05 54 54 08 80
               </a>
             </div>
           </div>

@@ -302,7 +302,7 @@ function StepType({ form, update, goNext }: {
         <OptionCard
           selected={form.type_intervention === "unique"}
           onClick={() => choose("unique", "etat_eau")}
-          emoji="⚡"
+          emoji=""
           label="Intervention express"
           tag="dès 75€"
           desc="Remise en route, nettoyage, traitement choc, hivernage…"
@@ -312,7 +312,7 @@ function StepType({ form, update, goNext }: {
         <OptionCard
           selected={form.type_intervention === "abonnement"}
           onClick={() => choose("abonnement", "taille")}
-          emoji="🏊"
+          emoji=""
           label="Abonnement saisonnier"
           tag="recommandé"
           desc="Mai → octobre · 2 ou 4 passages/mois · produits inclus"
@@ -322,7 +322,6 @@ function StepType({ form, update, goNext }: {
 
       {/* Bulle rassurante */}
       <div className="mt-5 flex gap-3 bg-plouf-glacier/30 border border-plouf-glacier rounded-2xl px-4 py-3.5">
-        <span className="text-lg flex-shrink-0 mt-0.5">💡</span>
         <p className="text-xs text-gray-600 leading-relaxed">
           <strong className="text-gray-800">Pas sûr·e de vous engager ?</strong>{" "}
           Commencez par une intervention express — si vous optez ensuite pour l&apos;abonnement,
@@ -350,9 +349,9 @@ function StepTaille({ form, update, goNext, goBack }: {
 
       <div className="space-y-3">
         {[
-          { val: "petit", emoji: "🔵", label: "Petite",  sub: "Moins de 30 m³" },
-          { val: "moyen", emoji: "🟡", label: "Moyenne", sub: "30 à 60 m³" },
-          { val: "grand", emoji: "🟢", label: "Grande",  sub: "Plus de 60 m³" },
+          { val: "petit", emoji: "", label: "Petite",  sub: "Moins de 30 m³" },
+          { val: "moyen", emoji: "", label: "Moyenne", sub: "30 à 60 m³" },
+          { val: "grand", emoji: "", label: "Grande",  sub: "Plus de 60 m³" },
         ].map(o => (
           <OptionCard
             key={o.val}
@@ -389,14 +388,14 @@ function StepFrequence({ form, update, goNext, goBack }: {
         <OptionCard
           selected={form.frequence === "bimensuel"}
           onClick={() => choose("bimensuel")}
-          emoji="📅"
+          emoji=""
           label="2 fois par mois"
           desc="Bimensuel — idéal pour les piscines bien équilibrées"
         />
         <OptionCard
           selected={form.frequence === "hebdomadaire"}
           onClick={() => choose("hebdomadaire")}
-          emoji="⭐"
+          emoji=""
           label="4 fois par mois"
           tag="recommandé"
           desc="Hebdomadaire — eau cristalline toute la saison"
@@ -405,7 +404,6 @@ function StepFrequence({ form, update, goNext, goBack }: {
 
       {form.taille && (
         <div className="mt-5 flex gap-3 bg-plouf-glacier/30 border border-plouf-glacier rounded-2xl px-4 py-3.5">
-          <span className="text-lg flex-shrink-0 mt-0.5">💶</span>
           <p className="text-xs text-gray-600 leading-relaxed">
             Pour un bassin{" "}
             <strong className="text-gray-800">
@@ -451,14 +449,14 @@ function StepTraitement({ form, update, goNext, goBack }: {
         <OptionCard
           selected={form.traitement === "chlore"}
           onClick={() => choose("chlore")}
-          emoji="🧪"
+          emoji=""
           label="Chlore"
           desc={prixChlore ? `Traitement classique — ${prixChlore} €/mois` : "Traitement classique"}
         />
         <OptionCard
           selected={form.traitement === "sel"}
           onClick={() => choose("sel")}
-          emoji="🧂"
+          emoji=""
           label="Sel — électrolyse"
           desc={prixSel ? `Eau plus douce — ${prixSel} €/mois (+15%)` : "Eau plus douce (+15%)"}
         />
@@ -490,21 +488,21 @@ function StepEau({ form, update, goNext, goBack }: {
         <OptionCard
           selected={form.etat_eau === "claire"}
           onClick={() => choose("claire")}
-          emoji="✨"
+          emoji=""
           label="Claire et transparente"
           desc="Propre, on maintient juste l'équilibre"
         />
         <OptionCard
           selected={form.etat_eau === "trouble"}
           onClick={() => choose("trouble")}
-          emoji="😐"
+          emoji=""
           label="Un peu trouble"
           desc="Voilée, pas encore verte"
         />
         <OptionCard
           selected={form.etat_eau === "verte"}
           onClick={() => choose("verte")}
-          emoji="🟢"
+          emoji=""
           label="Verte"
           desc="On s'en occupe — traitement choc inclus"
           warning
@@ -512,7 +510,7 @@ function StepEau({ form, update, goNext, goBack }: {
         <OptionCard
           selected={form.etat_eau === "je_sais_pas"}
           onClick={() => choose("je_sais_pas")}
-          emoji="🤷"
+          emoji=""
           label="Je ne sais pas"
           desc="On évalue sur place"
         />
@@ -542,14 +540,14 @@ function StepZone({ form, update, goNext, goBack }: {
         <OptionCard
           selected={form.zone === "bordeaux_metropole"}
           onClick={() => choose("bordeaux_metropole")}
-          emoji="🏙"
+          emoji=""
           label="Bordeaux Métropole"
           desc="Bruges, Le Bouscat, Mérignac, Eysines, Pessac…"
         />
         <OptionCard
           selected={form.zone === "medoc_bassin"}
           onClick={() => choose("medoc_bassin")}
-          emoji="🌅"
+          emoji=""
           label="Médoc & Bassin d'Arcachon"
           desc="Pauillac, Lesparre, Soulac, Arcachon…"
         />
@@ -618,7 +616,7 @@ function StepRecap({ form, prix, loading, erreur, onSubmit, goBack }: {
       ["Fréquence",  form.frequence === "hebdomadaire" ? "4×/mois" : "2×/mois"],
     ] as [string, string][] : []),
     ["État de l'eau", ({
-      claire: "Claire ✨", trouble: "Trouble 😐", verte: "Verte 🟢", je_sais_pas: "Je ne sais pas",
+      claire: "Claire", trouble: "Trouble", verte: "Verte", je_sais_pas: "Je ne sais pas",
     } as Record<string, string>)[form.etat_eau] ?? form.etat_eau],
     ["Zone",    form.zone === "bordeaux_metropole" ? "Bordeaux Métropole" : "Médoc / Bassin d'Arcachon"],
     ["Adresse", `${form.adresse}, ${form.code_postal} ${form.ville}`],

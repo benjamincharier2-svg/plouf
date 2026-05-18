@@ -99,13 +99,13 @@ export default function FAQPage() {
                 href="tel:0554540880"
                 className="flex items-center gap-2 border-2 border-gray-900 text-gray-900 font-semibold px-5 py-3 rounded-xl hover:bg-gray-900 hover:text-white transition-colors text-sm"
               >
-                📞 05 54 54 08 80
+                05 54 54 08 80
               </a>
               <a
                 href="mailto:contact@ploufpiscines.fr"
                 className="flex items-center gap-2 bg-plouf text-white font-semibold px-5 py-3 rounded-xl hover:bg-plouf-dark transition-colors text-sm"
               >
-                ✉ Email
+                Email
               </a>
             </div>
           </div>

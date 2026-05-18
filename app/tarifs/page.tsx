@@ -112,7 +112,7 @@ export default function TarifsPage() {
                     <p className="text-white/60 text-xs mt-0.5">{a.volume}</p>
                     {a.populaire && (
                       <span className="inline-block mt-1.5 bg-yellow-300 text-yellow-900 text-[10px] font-bold px-2 py-0.5 rounded-full">
-                        ⭐ La plus choisie
+                        La plus choisie
                       </span>
                     )}
                   </div>
@@ -156,7 +156,7 @@ export default function TarifsPage() {
                       <p className="text-xs text-gray-400">{a.volume}</p>
                     </div>
                     {a.populaire && (
-                      <span className="bg-plouf text-white text-xs font-bold px-2 py-1 rounded-full">⭐ La plus choisie</span>
+                      <span className="bg-plouf text-white text-xs font-bold px-2 py-1 rounded-full">La plus choisie</span>
                     )}
                   </div>
                   <div className="grid grid-cols-2 gap-2">
@@ -344,7 +344,7 @@ export default function TarifsPage() {
               href="mailto:contact@ploufpiscines.fr"
               className="inline-flex items-center gap-2 bg-white text-plouf font-semibold px-6 py-3 rounded-xl hover:bg-plouf hover:text-white transition-colors shadow-sm border border-plouf/15 text-sm"
             >
-              ✉ contact@ploufpiscines.fr
+              contact@ploufpiscines.fr
             </a>
           </div>
         </section>

@@ -1,3 +1,4 @@
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
@@ -77,12 +78,12 @@ export default function InterventionsPage() {
           {/* 3 garanties */}
           <div className="grid md:grid-cols-3 gap-5 mb-10">
             {[
-              { icon: "💳", titre: "Paiement après", desc: "Pas de pré-paiement. Le débit Stripe se fait après l'intervention." },
-              { icon: "🔔", titre: "Rapport de passage", desc: "Photos + mesures envoyés juste après. Même pour un passage unique." },
-              { icon: "🛒", titre: "Bon d'achat saisonnier", desc: "Si vous basculez sur l'abonnement plus tard, cette intervention est déduite." },
+              { icon: (<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg>), titre: "Paiement après", desc: "Pas de pré-paiement. Le débit Stripe se fait après l'intervention." },
+              { icon: (<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>), titre: "Rapport de passage", desc: "Photos + mesures envoyés juste après. Même pour un passage unique." },
+              { icon: (<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" /></svg>), titre: "Bon d'achat saisonnier", desc: "Si vous basculez sur l'abonnement plus tard, cette intervention est déduite." },
             ].map(item => (
               <div key={item.titre} className="bg-plouf-glacier/20 rounded-2xl p-5 border border-plouf-glacier">
-                <div className="text-2xl mb-3">{item.icon}</div>
+                <div className="w-10 h-10 rounded-xl bg-plouf-lavande text-plouf flex items-center justify-center mb-3">{item.icon}</div>
                 <div className="font-semibold text-gray-900 text-sm mb-2">{item.titre}</div>
                 <div className="text-gray-500 text-xs leading-relaxed">{item.desc}</div>
               </div>
