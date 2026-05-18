@@ -82,7 +82,7 @@ export async function sendAdminNotification(r: ReservationPayload) {
     .join("");
 
   await resend.emails.send({
-    from: "Plouf Réservations <onboarding@resend.dev>",
+    from: "Plouf Réservations <reservations@ploufpiscines.fr>",
     to: ADMIN_EMAIL,
     subject: `🆕 ${isAbo ? "Abonnement" : "Express"} — ${r.prenom} ${r.nom} · ${r.ville}`,
     html: `
