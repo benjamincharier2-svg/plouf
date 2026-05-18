@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Header from "@/components/Header";
 
 export const metadata = {
   title: "Interventions piscine à Bordeaux — Hivernage, remise en route, dépannage",
@@ -20,25 +21,7 @@ const interventions = [
 export default function InterventionsPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100">
-        <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-8">
-            <Link href="/">
-              <Image src="/logo-bleu.png" alt="plouf!" width={80} height={36} className="object-contain" />
-            </Link>
-            <nav className="hidden md:flex items-center gap-6 text-sm text-gray-600">
-              <Link href="/tarifs" className="hover:text-plouf transition-colors">Tarifs</Link>
-
-              <Link href="/conseils" className="hover:text-plouf transition-colors">Nos conseils</Link>
-              <Link href="/a-propos" className="hover:text-plouf transition-colors">À propos</Link>
-            </nav>
-          </div>
-          <Link href="/reserver" className="bg-plouf text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-plouf-dark transition-colors">
-            Réserver →
-          </Link>
-        </div>
-      </header>
+      <Header />
 
       <main className="pt-28 pb-20 px-4">
         <div className="max-w-4xl mx-auto">

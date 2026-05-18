@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Header from "@/components/Header";
 
 export const metadata = {
   title: "Mentions légales & CGV — Plouf Piscines",
@@ -8,17 +9,7 @@ export const metadata = {
 export default function MentionsLegalesPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100">
-        <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
-          <Link href="/">
-            <Image src="/logo-bleu.png" alt="plouf!" width={90} height={40} className="object-contain" />
-          </Link>
-          <Link href="/reserver" className="bg-[#1A00CC] text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-[#1200A0] transition-colors">
-            Réserver
-          </Link>
-        </div>
-      </header>
+      <Header />
 
       <main className="pt-28 pb-20 px-4">
         <div className="max-w-3xl mx-auto prose prose-gray">

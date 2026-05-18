@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Header from "@/components/Header";
 
 export const metadata = {
   title: "À propos — Plouf Piscines, techniciens piscine à Bordeaux",
@@ -60,28 +61,7 @@ export default function AProposPage() {
   return (
     <div className="min-h-screen bg-white">
 
-      {/* ── HEADER ───────────────────────────────────────────────────────────── */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-10">
-            <Link href="/">
-              <Image src="/logo-bleu.png" alt="plouf!" width={80} height={36} className="object-contain" />
-            </Link>
-            <nav className="hidden md:flex items-center gap-7 text-sm text-gray-600">
-              <Link href="/tarifs" className="hover:text-plouf transition-colors">Tarifs</Link>
-
-              <Link href="/conseils" className="hover:text-plouf transition-colors">Nos conseils</Link>
-              <Link href="/a-propos" className="text-plouf font-semibold">À propos</Link>
-            </nav>
-          </div>
-          <Link
-            href="/reserver"
-            className="bg-plouf text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-plouf-dark transition-colors shadow-sm shadow-plouf/30"
-          >
-            Réserver →
-          </Link>
-        </div>
-      </header>
+      <Header />
 
       <main className="pt-24">
 

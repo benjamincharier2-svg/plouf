@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Header from "@/components/Header";
 
 const questions = [
   {
@@ -40,21 +41,7 @@ export default function FAQPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100">
-        <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
-          <Link href="/">
-            <Image src="/logo-bleu.png" alt="plouf!" width={80} height={36} className="object-contain" />
-          </Link>
-          <nav className="hidden md:flex items-center gap-6 text-sm text-gray-600">
-            <Link href="/tarifs" className="hover:text-plouf transition-colors">Tarifs</Link>
-            <Link href="/faq" className="text-plouf font-semibold">FAQ</Link>
-          </nav>
-          <Link href="/reserver" className="bg-plouf text-white text-sm font-semibold px-4 py-2 rounded-full hover:bg-plouf-dark transition-colors">
-            Réserver →
-          </Link>
-        </div>
-      </header>
+      <Header />
 
       <main className="pt-28 pb-20 px-4">
         <div className="max-w-3xl mx-auto">

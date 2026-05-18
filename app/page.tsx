@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import Header from "@/components/Header";
 import AvantApresCarousel from "@/components/AvantApresCarousel";
 import FaqAccordion from "@/components/FaqAccordion";
 
@@ -71,27 +72,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* ── HEADER ─────────────────────────────────────────────────────────── */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-10">
-            <Link href="/">
-              <Image src="/logo-bleu.png" alt="plouf!" width={80} height={36} className="object-contain" />
-            </Link>
-            <nav className="hidden md:flex items-center gap-7 text-sm text-gray-600">
-              <Link href="/tarifs" className="hover:text-plouf transition-colors">Tarifs</Link>
-              <Link href="/conseils" className="hover:text-plouf transition-colors">Nos conseils</Link>
-              <Link href="/a-propos" className="hover:text-plouf transition-colors">À propos</Link>
-            </nav>
-          </div>
-          <Link
-            href="/reserver"
-            className="bg-plouf text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-plouf-dark transition-colors shadow-sm shadow-plouf/30"
-          >
-            Réserver une intervention →
-          </Link>
-        </div>
-      </header>
+      <Header />
 
       {/* ── HERO ───────────────────────────────────────────────────────────── */}
       <section
@@ -106,10 +87,10 @@ export default function Home() {
           <div className="py-8 pr-4">
             {/* Titre principal — taille réduite pour respirer */}
             <h1 className="font-title font-bold leading-[1.1] mb-6">
-              <span className="text-[2.8rem] md:text-[3.4rem] text-gray-900 block">
+              <span className="text-[1.9rem] md:text-[3.4rem] text-gray-900 block">
                 Votre piscine propre<br />tout l&apos;été.
               </span>
-              <span className="text-[2.8rem] md:text-[3.4rem] text-plouf block mt-2">
+              <span className="text-[1.9rem] md:text-[3.4rem] text-plouf block mt-2">
                 Sans y penser.
               </span>
             </h1>
@@ -188,7 +169,7 @@ export default function Home() {
             </div>
 
             {/* Overlay rapport — haut droite */}
-            <div className="absolute top-4 -right-4 md:-right-6 bg-white rounded-2xl shadow-xl p-4 w-60 border border-gray-100">
+            <div className="hidden md:block absolute top-4 -right-4 md:-right-6 bg-white rounded-2xl shadow-xl p-4 w-60 border border-gray-100">
               <div className="flex items-center gap-2 mb-3">
                 <div className="w-8 h-8 rounded-full bg-plouf-lavande flex items-center justify-center flex-shrink-0">
                   <svg className="w-4 h-4 text-plouf" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
