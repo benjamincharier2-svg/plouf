@@ -133,7 +133,7 @@ export default function Home() {
             </div>
 
             {/* 3 micro-badges */}
-            <div className="flex flex-wrap gap-6 text-sm text-gray-500">
+            <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-gray-500">
               <span className="flex items-center gap-1.5">
                 <svg className="w-4 h-4 text-plouf flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
@@ -156,7 +156,7 @@ export default function Home() {
           </div>
 
           {/* ── Droite — photo + overlays ── */}
-          <div className="relative mt-8 md:mt-0 pb-6">
+          <div className="relative mt-8 md:mt-0 pb-6 hidden md:block">
             {/* Photo principale — sans bouton play */}
             <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-xl shadow-plouf/10">
               <Image
@@ -331,11 +331,6 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                 </svg>
               ), titre: "Rapport à chaque passage", desc: "Photos et mesures envoyées après chaque visite." },
-              { icon: (
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-              ), titre: "Annulation sans frais", desc: "Jusqu'à 24h avant, sans frais et sans justification." },
               { icon: (
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -537,20 +532,6 @@ export default function Home() {
             <p className="text-xs text-gray-400 italic">
               Plouf optimise ses tournées quand plusieurs maisons d&apos;une même rue sont clientes — moins de déplacements, service plus réactif.
             </p>
-          </div>
-          <div className="bg-gradient-to-br from-plouf-lavande to-plouf-glacier/40 rounded-2xl p-6 border border-plouf/10">
-            <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">Zones desservies</p>
-            <h3 className="font-bold text-gray-900 mb-5 font-title">Où on intervient</h3>
-            <div className="bg-white/70 rounded-xl h-36 flex items-center justify-center text-gray-400 text-sm mb-5 border border-plouf/10">
-              🗺 Gironde — Bordeaux · Médoc · Bassin
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {["Bordeaux Métropole", "Médoc", "Bassin d'Arcachon"].map(z => (
-                <span key={z} className="bg-white text-plouf text-xs font-medium px-3 py-1.5 rounded-full border border-plouf/20 shadow-sm">
-                  📍 {z}
-                </span>
-              ))}
-            </div>
           </div>
         </div>
       </section>
