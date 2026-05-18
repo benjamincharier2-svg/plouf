@@ -532,6 +532,22 @@ export default function Home() {
               Plouf optimise ses tournées quand plusieurs maisons d&apos;une même rue sont clientes — moins de déplacements, service plus réactif.
             </p>
           </div>
+
+          {/* Zones desservies — desktop uniquement */}
+          <div className="hidden md:block bg-gradient-to-br from-plouf-lavande to-plouf-glacier/40 rounded-2xl p-6 border border-plouf/10">
+            <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">Zones desservies</p>
+            <h3 className="font-bold text-gray-900 mb-5 font-title">Où on intervient</h3>
+            <div className="bg-white/70 rounded-xl h-36 flex items-center justify-center text-gray-400 text-sm mb-5 border border-plouf/10">
+              Gironde — Bordeaux · Médoc · Bassin
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {["Bordeaux Métropole", "Médoc", "Bassin d'Arcachon"].map(z => (
+                <span key={z} className="bg-white text-plouf text-xs font-medium px-3 py-1.5 rounded-full border border-plouf/20 shadow-sm">
+                  {z}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
