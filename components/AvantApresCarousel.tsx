@@ -31,7 +31,7 @@ function PhotoSlot({
   bg: string
 }) {
   return (
-    <div className="relative w-[160px] h-[200px] rounded-xl overflow-hidden flex-shrink-0">
+    <div className="relative w-[110px] h-[140px] rounded-xl overflow-hidden flex-shrink-0">
       {src ? (
         <Image src={src} alt={alt} fill className="object-cover" />
       ) : (
@@ -86,10 +86,7 @@ export default function AvantApresCarousel() {
             100% { transform: translateX(-33.333%); }
           }
           .plouf-carousel-track {
-            animation: plouf-scroll 40s linear infinite;
-          }
-          .plouf-carousel-track:hover {
-            animation-play-state: paused;
+            animation: plouf-scroll 30s linear infinite;
           }
         `}</style>
 
