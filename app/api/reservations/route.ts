@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { sendAdminNotification, type ReservationPayload } from "@/lib/emails";
+import { sendAdminNotification, sendClientConfirmation, type ReservationPayload } from "@/lib/emails";
 
 export async function POST(req: NextRequest) {
   try {
@@ -34,8 +34,11 @@ export async function POST(req: NextRequest) {
       montant_mensuel: montant_mensuel || null,
     };
 
-    // ── Envoi email admin ────────────────────────────────────────────────────
-    await sendAdminNotification(payload);
+    // ── Envoi emails ─────────────────────────────────────────────────────────
+    await Promise.all([
+      sendAdminNotification(payload),
+      sendClientConfirmation(payload),
+    ]);
 
     return NextResponse.json({ success: true }, { status: 201 });
 
