@@ -2,8 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
-  title: "À propos — Plouf Piscines",
-  description: "Plouf est un service d'entretien de piscines à domicile, sur Bordeaux Métropole, le Médoc et le Bassin d'Arcachon. Une équipe locale, un suivi régulier, zéro surprise.",
+  title: "À propos — Plouf Piscines, techniciens piscine à Bordeaux",
+  description:
+    "Plouf Piscines, c'est une équipe de techniciens locaux sur Bordeaux Métropole, le Médoc et le Bassin d'Arcachon. Entretien régulier, produits inclus, rapport après chaque passage.",
+  alternates: { canonical: "https://ploufpiscines.fr/a-propos" },
 };
 
 const VALEURS = [

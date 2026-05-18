@@ -2,8 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Interventions ponctuelles — Plouf Piscines",
-  description: "Remise en route, hivernage, traitement choc, dépannage. Tarifs fixes annoncés avant le passage.",
+  title: "Interventions piscine à Bordeaux — Hivernage, remise en route, dépannage",
+  description:
+    "Hivernage, remise en route printemps, changement de sable, traitement eau verte à Bordeaux, Médoc et Arcachon. Tarifs fixes, technicien qualifié.",
+  alternates: { canonical: "https://ploufpiscines.fr/interventions" },
 };
 
 const interventions = [

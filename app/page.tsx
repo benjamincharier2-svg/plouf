@@ -1,11 +1,75 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 import AvantApresCarousel from "@/components/AvantApresCarousel";
 import FaqAccordion from "@/components/FaqAccordion";
+
+export const metadata: Metadata = {
+  title: "Plouf Piscines — Entretien piscine à domicile Bordeaux, Médoc, Arcachon",
+  description:
+    "Entretien de piscine à domicile sur Bordeaux Métropole, Médoc et Bassin d'Arcachon. Abonnements dès 120 €/mois, interventions express dès 75 €. Rappel sous 2h.",
+  alternates: { canonical: "https://ploufpiscines.fr" },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://ploufpiscines.fr",
+  name: "Plouf Piscines",
+  description:
+    "Service d'entretien de piscines à domicile sur Bordeaux Métropole, le Médoc et le Bassin d'Arcachon.",
+  url: "https://ploufpiscines.fr",
+  telephone: "+33554540880",
+  email: "contact@ploufpiscines.fr",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "15 rue Thiac",
+    addressLocality: "Bordeaux",
+    postalCode: "33000",
+    addressCountry: "FR",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 44.8378,
+    longitude: -0.5792,
+  },
+  areaServed: [
+    { "@type": "City", name: "Bordeaux" },
+    { "@type": "City", name: "Mérignac" },
+    { "@type": "City", name: "Pessac" },
+    { "@type": "City", name: "Le Bouscat" },
+    { "@type": "City", name: "Bruges" },
+    { "@type": "City", name: "Arcachon" },
+    { "@type": "City", name: "La Teste-de-Buch" },
+    { "@type": "City", name: "Andernos-les-Bains" },
+    { "@type": "City", name: "Pauillac" },
+    { "@type": "City", name: "Lesparre-Médoc" },
+  ],
+  priceRange: "€€",
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "08:00",
+      closes: "19:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: "Saturday",
+      opens: "09:00",
+      closes: "17:00",
+    },
+  ],
+  sameAs: ["https://ploufpiscines.fr"],
+};
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
       {/* ── HEADER ─────────────────────────────────────────────────────────── */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100">

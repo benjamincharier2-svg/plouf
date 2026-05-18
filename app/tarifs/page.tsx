@@ -2,8 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Tarifs — Plouf Piscines",
-  description: "Abonnements saisonniers et interventions ponctuelles. Produits inclus, paiement après intervention.",
+  title: "Tarifs entretien piscine Bordeaux — Abonnements dès 120 €/mois",
+  description:
+    "Tarifs transparents : abonnements piscine dès 120 €/mois sur Bordeaux Métropole, Médoc et Arcachon. Interventions express dès 75 €. Produits inclus, sans surprise.",
+  alternates: { canonical: "https://ploufpiscines.fr/tarifs" },
 };
 
 // ─── Données ──────────────────────────────────────────────────────────────────
