@@ -45,11 +45,11 @@ const VALEURS = [
 const ZONES = [
   {
     nom: "Bordeaux Métropole",
-    communes: ["Bordeaux", "Mérignac", "Bruges", "Le Bouscat", "Eysines", "Caudéran", "Pessac", "Talence"],
+    communes: ["Bordeaux", "Mérignac", "Le Bouscat", "Bruges", "Eysines", "Le Haillan", "Caudéran", "Talence", "Pessac"],
   },
   {
     nom: "Médoc",
-    communes: ["Soulac-sur-Mer", "Lesparre-Médoc", "Pauillac", "Saint-Estèphe", "Margaux", "Lacanau"],
+    communes: ["Lesparre-Médoc", "Soulac-sur-Mer", "Le Verdon-sur-Mer", "Saint-Vivien-de-Médoc", "Vendays-Montalivet", "Grayan-et-l'Hôpital", "Vensac", "Queyrac", "Hourtin", "Naujac-sur-Mer", "Talais"],
   },
   {
     nom: "Bassin d'Arcachon",
