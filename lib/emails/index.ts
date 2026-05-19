@@ -1,8 +1,5 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL ?? "contact@ploufpiscines.fr";
-
 // ── Types ──────────────────────────────────────────────────────────────────
 
 export interface ReservationPayload {
@@ -26,18 +23,18 @@ export interface ReservationPayload {
 // ── Helpers ────────────────────────────────────────────────────────────────
 
 function formatZone(z: string) {
-  return z === "bordeaux_metropole" ? "Bordeaux Métropole" : "Médoc — Bassin d'Arcachon";
+  return z === "bordeaux_metropole" ? "Bordeaux Métropole" : "Médoc, Bassin d'Arcachon";
 }
 function formatTaille(t: string | null | undefined) {
-  if (!t) return "—";
+  if (!t) return "N/A";
   return t === "petit" ? "Petite (< 30 m³)" : t === "moyen" ? "Moyenne (30–60 m³)" : "Grande (> 60 m³)";
 }
 function formatFrequence(f: string | null | undefined) {
-  if (!f) return "—";
+  if (!f) return "N/A";
   return f === "bimensuel" ? "2×/mois (Bimensuel)" : "4×/mois (Hebdomadaire)";
 }
 function formatEau(e: string | null | undefined) {
-  if (!e) return "—";
+  if (!e) return "N/A";
   const map: Record<string, string> = {
     claire: "Claire ✨",
     trouble: "Trouble 😐",
@@ -53,6 +50,8 @@ function now() {
 // ── Notification admin ─────────────────────────────────────────────────────
 
 export async function sendAdminNotification(r: ReservationPayload) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
+  const ADMIN_EMAIL = process.env.ADMIN_EMAIL ?? "contact@ploufpiscines.fr";
   const isAbo = r.type_intervention === "abonnement";
 
   const rows = [
@@ -65,9 +64,9 @@ export async function sendAdminNotification(r: ReservationPayload) {
     ["État de l'eau", formatEau(r.etat_eau)],
     ...(isAbo ? [
       ["Bassin", formatTaille(r.taille_bassin)],
-      ["Traitement", r.type_traitement === "sel" ? "Sel — électrolyse" : "Chlore"],
+      ["Traitement", r.type_traitement === "sel" ? "Sel, électrolyse" : "Chlore"],
       ["Fréquence", formatFrequence(r.frequence)],
-      ["Estimation", r.montant_mensuel ? `<strong style="color:#1313D6">${r.montant_mensuel} €/mois</strong>` : "—"],
+      ["Estimation", r.montant_mensuel ? `<strong style="color:#1313D6">${r.montant_mensuel} €/mois</strong>` : "N/A"],
     ] : []),
     ...(r.notes ? [["Notes", r.notes]] : []),
   ];
@@ -84,7 +83,7 @@ export async function sendAdminNotification(r: ReservationPayload) {
   await resend.emails.send({
     from: "Plouf Réservations <reservations@ploufpiscines.fr>",
     to: ADMIN_EMAIL,
-    subject: `🆕 ${isAbo ? "Abonnement" : "Express"} — ${r.prenom} ${r.nom} · ${r.ville}`,
+    subject: `🆕 ${isAbo ? "Abonnement" : "Express"} · ${r.prenom} ${r.nom} · ${r.ville}`,
     html: `
       <div style="font-family:system-ui,sans-serif;max-width:600px;margin:0 auto;padding:24px;">
         <div style="background:#1313D6;border-radius:12px 12px 0 0;padding:20px 24px;">
@@ -103,7 +102,7 @@ export async function sendAdminNotification(r: ReservationPayload) {
         </div>
 
         <p style="color:#aaa;font-size:11px;margin-top:20px;text-align:center;">
-          ploufpiscines.fr — contact@ploufpiscines.fr
+          ploufpiscines.fr · contact@ploufpiscines.fr
         </p>
       </div>
     `,
@@ -113,13 +112,14 @@ export async function sendAdminNotification(r: ReservationPayload) {
 // ── Confirmation client ────────────────────────────────────────────────────
 
 export async function sendClientConfirmation(r: ReservationPayload) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
   const isAbo = r.type_intervention === "abonnement";
   const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://ploufpiscines.fr";
 
   await resend.emails.send({
     from: "Plouf Piscines <reservations@ploufpiscines.fr>",
     to: r.email,
-    subject: `✅ Demande reçue — on vous rappelle sous 2h !`,
+    subject: `✅ Demande reçue, on vous rappelle sous 2h !`,
     html: `
       <div style="font-family:system-ui,sans-serif;max-width:600px;margin:0 auto;padding:24px;">
 
