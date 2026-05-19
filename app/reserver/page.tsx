@@ -47,8 +47,8 @@ interface FormData {
   notes: string
 }
 
-const STEPS_ABO: StepId[]    = ["type", "taille", "frequence", "traitement", "etat_eau", "zone", "coordonnees", "recap"]
-const STEPS_UNIQUE: StepId[] = ["type", "etat_eau", "zone", "coordonnees", "recap"]
+const STEPS_ABO: StepId[]    = ["type", "taille", "frequence", "traitement", "etat_eau", "zone", "coordonnees"]
+const STEPS_UNIQUE: StepId[] = ["type", "etat_eau", "zone", "coordonnees"]
 
 type UpdateFn = <K extends keyof FormData>(k: K, v: FormData[K]) => void
 
@@ -136,7 +136,7 @@ export default function ReserverPage() {
     ? "opacity-100 translate-x-0"
     : dir === 1 ? "opacity-0 -translate-x-6" : "opacity-0 translate-x-6"
 
-  if (step === "done") return <SuccessScreen />
+  if (step === "done") return <SuccessScreen prix={prix} isAbo={form.type_intervention === "abonnement"} prenom={form.prenom} />
 
   return (
     <div className="min-h-screen flex flex-col"
@@ -176,12 +176,10 @@ export default function ReserverPage() {
           {step === "traitement"  && <StepTraitement   form={form} update={update} goNext={goNext} goBack={goBack} />}
           {step === "etat_eau"    && <StepEau          form={form} update={update} goNext={goNext} goBack={goBack} />}
           {step === "zone"        && <StepZone         form={form} update={update} goNext={goNext} goBack={goBack} />}
-          {step === "coordonnees" && <StepCoordonnees  form={form} update={update} goNext={goNext} goBack={goBack} />}
-          {step === "recap"       && (
-            <StepRecap
-              form={form} prix={prix} loading={loading} erreur={erreur}
-              onSubmit={soumettre}
-              goBack={() => goBack("coordonnees")}
+          {step === "coordonnees" && (
+            <StepCoordonnees
+              form={form} update={update} goBack={goBack}
+              onSubmit={soumettre} loading={loading} erreur={erreur}
             />
           )}
 
@@ -245,16 +243,6 @@ function OptionCard({
   )
 }
 
-function BtnNext({ onClick, disabled, children = "Continuer →" }: {
-  onClick: () => void; disabled?: boolean; children?: React.ReactNode
-}) {
-  return (
-    <button onClick={onClick} disabled={disabled}
-      className="w-full mt-6 bg-plouf text-white font-semibold py-3.5 rounded-xl hover:bg-plouf-dark transition-colors disabled:opacity-30 disabled:cursor-not-allowed text-base"
-    >{children}</button>
-  )
-}
-
 function BtnBack({ onClick }: { onClick: () => void }) {
   return (
     <button onClick={onClick} className="w-full mt-3 text-gray-400 text-sm hover:text-gray-600 transition-colors py-2">
@@ -294,7 +282,7 @@ function StepType({ form, update, goNext }: {
   return (
     <>
       <Question>Quel type d&apos;intervention cherchez-vous ?</Question>
-      <Hint>Aucun paiement maintenant — on vous rappelle sous 2h.</Hint>
+      <Hint>Aucun paiement maintenant, on vous rappelle sous 2h.</Hint>
 
       <div className="space-y-3">
 
@@ -324,7 +312,7 @@ function StepType({ form, update, goNext }: {
       <div className="mt-5 flex gap-3 bg-plouf-glacier/30 border border-plouf-glacier rounded-2xl px-4 py-3.5">
         <p className="text-xs text-gray-600 leading-relaxed">
           <strong className="text-gray-800">Pas sûr·e de vous engager ?</strong>{" "}
-          Commencez par une intervention express — si vous optez ensuite pour l&apos;abonnement,
+          Commencez par une intervention express. Si vous optez ensuite pour l&apos;abonnement,
           son montant est <strong className="text-plouf">intégralement déduit</strong>. Pas d&apos;argent perdu.
         </p>
       </div>
@@ -390,7 +378,7 @@ function StepFrequence({ form, update, goNext, goBack }: {
           onClick={() => choose("bimensuel")}
           emoji=""
           label="2 fois par mois"
-          desc="Bimensuel — idéal pour les piscines bien équilibrées"
+          desc="Bimensuel, idéal pour les piscines bien équilibrées"
         />
         <OptionCard
           selected={form.frequence === "hebdomadaire"}
@@ -398,7 +386,7 @@ function StepFrequence({ form, update, goNext, goBack }: {
           emoji=""
           label="4 fois par mois"
           tag="recommandé"
-          desc="Hebdomadaire — eau cristalline toute la saison"
+          desc="Hebdomadaire, eau cristalline toute la saison"
         />
       </div>
 
@@ -443,7 +431,7 @@ function StepTraitement({ form, update, goNext, goBack }: {
   return (
     <>
       <Question>Quel est votre type de traitement ?</Question>
-      <Hint>Le sel (électrolyse) demande une maintenance spécifique — notre tarif est ajusté.</Hint>
+      <Hint>Le sel (électrolyse) demande une maintenance spécifique, notre tarif est ajusté.</Hint>
 
       <div className="space-y-3">
         <OptionCard
@@ -451,14 +439,14 @@ function StepTraitement({ form, update, goNext, goBack }: {
           onClick={() => choose("chlore")}
           emoji=""
           label="Chlore"
-          desc={prixChlore ? `Traitement classique — ${prixChlore} €/mois` : "Traitement classique"}
+          desc={prixChlore ? `Traitement classique, ${prixChlore} €/mois` : "Traitement classique"}
         />
         <OptionCard
           selected={form.traitement === "sel"}
           onClick={() => choose("sel")}
           emoji=""
-          label="Sel — électrolyse"
-          desc={prixSel ? `Eau plus douce — ${prixSel} €/mois (+15%)` : "Eau plus douce (+15%)"}
+          label="Sel, électrolyse"
+          desc={prixSel ? `Eau plus douce, ${prixSel} €/mois (+15%)` : "Eau plus douce (+15%)"}
         />
       </div>
 
@@ -504,7 +492,7 @@ function StepEau({ form, update, goNext, goBack }: {
           onClick={() => choose("verte")}
           emoji=""
           label="Verte"
-          desc="On s'en occupe — traitement choc inclus"
+          desc="On s'en occupe, traitement choc inclus"
           warning
         />
         <OptionCard
@@ -560,8 +548,9 @@ function StepZone({ form, update, goNext, goBack }: {
 
 // ─── Étape 5 — Coordonnées ────────────────────────────────────────────────────
 
-function StepCoordonnees({ form, update, goNext, goBack }: {
-  form: FormData; update: UpdateFn; goNext: (s: StepId) => void; goBack: (s: StepId) => void
+function StepCoordonnees({ form, update, goBack, onSubmit, loading, erreur }: {
+  form: FormData; update: UpdateFn; goBack: (s: StepId) => void
+  onSubmit: () => void; loading: boolean; erreur: string
 }) {
   const valid = form.prenom && form.nom && form.email && form.telephone && form.adresse && form.ville && form.code_postal
 
@@ -594,80 +583,26 @@ function StepCoordonnees({ form, update, goNext, goBack }: {
         </div>
       </div>
 
-      <BtnNext onClick={() => goNext("recap")} disabled={!valid} />
-      <BtnBack onClick={() => goBack("zone")} />
-    </>
-  )
-}
+      {erreur && <p className="text-red-600 text-sm bg-red-50 px-4 py-3 rounded-xl mt-4">{erreur}</p>}
 
-// ─── Étape 6 — Récap ─────────────────────────────────────────────────────────
-
-function StepRecap({ form, prix, loading, erreur, onSubmit, goBack }: {
-  form: FormData; prix: number | null; loading: boolean; erreur: string
-  onSubmit: () => void; goBack: () => void
-}) {
-  const isAbo = form.type_intervention === "abonnement"
-  const TAILLES: Record<string, string> = { petit: "Petite", moyen: "Moyenne", grand: "Grande" }
-
-  const rows: [string, string][] = [
-    ["Type", isAbo ? "Abonnement saisonnier" : "Intervention express"],
-    ...(isAbo ? [
-      ["Bassin",     `${TAILLES[form.taille] ?? ""} · ${form.traitement === "sel" ? "Sel" : "Chlore"}`],
-      ["Fréquence",  form.frequence === "hebdomadaire" ? "4×/mois" : "2×/mois"],
-    ] as [string, string][] : []),
-    ["État de l'eau", ({
-      claire: "Claire", trouble: "Trouble", verte: "Verte", je_sais_pas: "Je ne sais pas",
-    } as Record<string, string>)[form.etat_eau] ?? form.etat_eau],
-    ["Zone",    form.zone === "bordeaux_metropole" ? "Bordeaux Métropole" : "Médoc / Bassin d'Arcachon"],
-    ["Adresse", `${form.adresse}, ${form.code_postal} ${form.ville}`],
-    ["Contact", `${form.prenom} ${form.nom} · ${form.telephone}`],
-    ["Email",    form.email],
-  ]
-
-  return (
-    <>
-      <Question>Tout est bon ?</Question>
-      <Hint>On vous rappelle sous 2h pour organiser le premier passage.</Hint>
-
-      <div className="space-y-1.5 mb-5">
-        {rows.map(([k, v]) => (
-          <div key={k} className="flex justify-between text-sm py-2 border-b border-gray-50 last:border-0">
-            <span className="text-gray-400 flex-shrink-0 mr-3">{k}</span>
-            <span className="font-medium text-gray-800 text-right">{v}</span>
-          </div>
-        ))}
-      </div>
-
-      {prix && (
-        <div className="bg-plouf text-white rounded-2xl px-5 py-4 mb-5 flex items-center justify-between">
-          <div>
-            <p className="text-white/70 text-xs mb-0.5">Estimation mensuelle</p>
-            <p className="font-title font-bold text-2xl">{prix} €<span className="text-base font-normal">/mois</span></p>
-          </div>
-          <p className="text-white/60 text-xs text-right leading-relaxed">Produits inclus<br />Tarif confirmé par téléphone</p>
-        </div>
-      )}
-
-      {erreur && <p className="text-red-600 text-sm bg-red-50 px-4 py-3 rounded-xl mb-4">{erreur}</p>}
-
-      <button onClick={onSubmit} disabled={loading}
-        className="w-full bg-plouf text-white font-bold py-4 rounded-xl hover:bg-plouf-dark transition-colors disabled:opacity-60 text-base"
+      <button onClick={onSubmit} disabled={!valid || loading}
+        className="w-full mt-6 bg-plouf text-white font-bold py-4 rounded-xl hover:bg-plouf-dark transition-colors disabled:opacity-30 disabled:cursor-not-allowed text-base"
       >
         {loading ? "Envoi en cours…" : "Envoyer ma demande →"}
       </button>
 
       <p className="text-xs text-center text-gray-400 mt-3">
-        Aucun paiement maintenant — on vous rappelle sous 2h.
+        Aucun paiement maintenant. On vous rappelle sous 2h.
       </p>
 
-      <BtnBack onClick={goBack} />
+      <BtnBack onClick={() => goBack("zone")} />
     </>
   )
 }
 
 // ─── Écran de succès ──────────────────────────────────────────────────────────
 
-function SuccessScreen() {
+function SuccessScreen({ prix, isAbo, prenom }: { prix: number | null; isAbo: boolean; prenom: string }) {
   return (
     <div className="min-h-screen flex items-center justify-center px-6"
       style={{ background: "linear-gradient(135deg, #E7EBFF 0%, #D6F2F7 55%, #eaf7fb 100%)" }}
@@ -679,13 +614,24 @@ function SuccessScreen() {
           </svg>
         </div>
         <h1 className="font-title font-bold text-2xl text-gray-900 mb-3">Demande envoyée !</h1>
-        <p className="text-gray-500 leading-relaxed mb-8">
-          Notre équipe vous rappelle <strong>sous 2h</strong> pour confirmer le premier passage et répondre à vos questions.
+        <p className="text-gray-500 leading-relaxed mb-6">
+          Merci {prenom}. Notre équipe vous rappelle <strong>sous 2h</strong> pour confirmer le premier passage.
         </p>
+
+        {isAbo && prix && (
+          <div className="bg-plouf text-white rounded-2xl px-5 py-4 mb-6 flex items-center justify-between text-left">
+            <div>
+              <p className="text-white/70 text-xs mb-0.5">Votre estimation mensuelle</p>
+              <p className="font-title font-bold text-2xl">{prix} €<span className="text-base font-normal">/mois</span></p>
+            </div>
+            <p className="text-white/60 text-xs text-right leading-relaxed">Produits inclus<br />Confirmé par téléphone</p>
+          </div>
+        )}
+
         <div className="space-y-3 text-sm text-left mb-8 bg-gray-50 rounded-2xl p-5">
           {[
-            ["1", "On vous rappelle", "Sous 2h — par téléphone."],
-            ["2", "On fixe le premier passage", "Date, heure, accès — on s'organise avec vous."],
+            ["1", "On vous rappelle", "Sous 2h, par téléphone."],
+            ["2", "On fixe le premier passage", "Date, heure, accès. On s'organise avec vous."],
             ["3", "Le technicien arrive", "Vous n'avez rien à préparer."],
           ].map(([n, t, d]) => (
             <div key={n} className="flex gap-3 items-start">
