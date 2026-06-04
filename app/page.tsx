@@ -6,9 +6,9 @@ import AvantApresCarousel from "@/components/AvantApresCarousel";
 import FaqAccordion from "@/components/FaqAccordion";
 
 export const metadata: Metadata = {
-  title: "Plouf Piscines — Entretien piscine à domicile Bordeaux, Médoc, Arcachon",
+  title: "Plouf Piscines. Entretien piscine à domicile Bordeaux, Médoc, Arcachon",
   description:
-    "Entretien de piscine à domicile sur Bordeaux Métropole, Médoc et Bassin d'Arcachon. Abonnements dès 120 €/mois, interventions express dès 75 €. Rappel sous 2h.",
+    "Entretien de piscine à domicile sur Bordeaux Métropole, Médoc et Bassin d'Arcachon. Abonnements dès 120 €/mois, interventions express dès 75 €. On vous rappelle.",
   alternates: { canonical: "https://ploufpiscines.fr" },
 };
 
@@ -96,22 +96,39 @@ export default function Home() {
           {/* ── Gauche ── */}
           <div className="py-8 pr-4">
             {/* Titre principal — taille réduite pour respirer */}
-            <h1 className="font-title font-bold leading-[1.1] mb-6">
+            <h1 className="font-title font-bold leading-[1.15] mb-6">
               <span className="text-[1.9rem] md:text-[3.4rem] text-gray-900 block">
-                Votre piscine propre<br />tout l&apos;été.
+                Votre piscine
               </span>
-              <span className="text-[1.9rem] md:text-[3.4rem] text-plouf block mt-2">
+              <span className="text-[1.9rem] md:text-[3.4rem] text-gray-900 block">
+                propre tout l&apos;été.
+              </span>
+              <span className="text-[1.9rem] md:text-[3.4rem] text-plouf block mt-2 relative inline-block">
                 Sans y penser.
+                <svg
+                  viewBox="0 0 220 10"
+                  className="absolute -bottom-4 left-0 w-full"
+                  preserveAspectRatio="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0,5 C15,1 30,9 45,5 C60,1 75,9 90,5 C105,1 120,9 135,5 C150,1 165,9 180,5 C195,1 210,9 220,5"
+                    fill="none"
+                    stroke="#1313D6"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                  />
+                </svg>
               </span>
             </h1>
 
             {/* Sous-titre */}
             <p className="text-gray-500 text-lg leading-relaxed mb-2 max-w-lg">
               Un technicien vient chez vous, traite votre eau, nettoie
-              votre bassin — et vous envoie un rapport de passage.
+              votre bassin, et vous envoie un rapport de passage.
             </p>
             <p className="text-plouf font-semibold text-lg mb-9">
-              Vous ne faites rien.
+              On gère tout. Vous plongez.
             </p>
 
             {/* CTA + Social proof — sur deux lignes si besoin */}
@@ -120,24 +137,22 @@ export default function Home() {
                 href="/reserver"
                 className="inline-flex items-center justify-center gap-2 bg-plouf text-white px-7 py-3.5 rounded-lg text-base font-semibold hover:bg-plouf-dark transition-colors shadow-md shadow-plouf/30 whitespace-nowrap"
               >
-                Obtenir mon devis en 30 secondes →
+                Prendre contact maintenant →
               </Link>
               {/* Avatars + note */}
               <div className="flex items-center gap-3">
-                <div className="flex -space-x-2">
-                  {["#9EE6F7","#bbd4fb","#c4e0b8","#f7d9a0","#f7b8b8"].map((c, i) => (
-                    <div
-                      key={i}
-                      className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center text-xs font-bold text-gray-600"
-                      style={{ background: c, zIndex: 5 - i }}
-                    >
-                      {["M","T","S","A","L"][i]}
-                    </div>
-                  ))}
+                <div className="w-8 h-8 rounded-full border-2 border-white bg-white flex items-center justify-center overflow-hidden shadow-sm">
+                  {/* Google G logo */}
+                  <svg viewBox="0 0 24 24" className="w-5 h-5" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                  </svg>
                 </div>
                 <div>
                   <div className="flex items-center gap-1 text-yellow-400 text-sm leading-none">★★★★★</div>
-                  <div className="text-xs text-gray-500 font-medium mt-0.5">4,9/5 sur Google</div>
+                  <div className="text-xs text-gray-500 font-medium mt-0.5">5/5 sur Google</div>
                 </div>
               </div>
             </div>
@@ -203,9 +218,9 @@ export default function Home() {
               </div>
               {/* Miniatures photos */}
               <div className="grid grid-cols-3 gap-1.5 mb-2.5">
-                {[1,2,3].map(i => (
-                  <div key={i} className="aspect-square rounded-lg bg-plouf-glacier/40 overflow-hidden">
-                    <div className="w-full h-full bg-gradient-to-br from-plouf-glacier to-plouf-eau/30" />
+                {["ph.jpg","apres-2.jpg","apres-3.jpg"].map(src => (
+                  <div key={src} className="aspect-square rounded-lg overflow-hidden relative">
+                    <Image src={`/${src}`} alt="Photo passage" fill className="object-cover" />
                   </div>
                 ))}
               </div>
@@ -226,6 +241,22 @@ export default function Home() {
             </div>
           </div>
         </div>
+        {/* Vague de transition */}
+        <div className="absolute bottom-0 left-0 right-0 overflow-hidden leading-none">
+          <style>{`
+            @keyframes wave1 { 0%,100%{transform:translateX(0)} 50%{transform:translateX(-25px)} }
+            @keyframes wave2 { 0%,100%{transform:translateX(0)} 50%{transform:translateX(20px)} }
+            @keyframes wave3 { 0%,100%{transform:translateX(0)} 50%{transform:translateX(-15px)} }
+            .w1{animation:wave1 6s ease-in-out infinite}
+            .w2{animation:wave2 8s ease-in-out infinite}
+            .w3{animation:wave3 10s ease-in-out infinite}
+          `}</style>
+          <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="w-full h-16 md:h-20" xmlns="http://www.w3.org/2000/svg">
+            <path className="w3" d="M0,40 C240,70 480,10 720,40 C960,70 1200,10 1440,40 L1440,80 L0,80 Z" fill="rgba(255,255,255,0.3)" />
+            <path className="w2" d="M0,50 C200,20 440,65 720,45 C1000,25 1240,60 1440,50 L1440,80 L0,80 Z" fill="rgba(255,255,255,0.5)" />
+            <path className="w1" d="M0,60 C180,40 360,75 720,55 C1080,35 1260,70 1440,60 L1440,80 L0,80 Z" fill="#ffffff" />
+          </svg>
+        </div>
       </section>
 
       {/* ── PLONGEZ. ON GÈRE. ──────────────────────────────────────────────── */}
@@ -242,7 +273,7 @@ export default function Home() {
             </span>
             <span className="flex items-center gap-2">
               <span className="w-5 h-5 rounded-full bg-plouf-lavande flex items-center justify-center text-plouf text-xs font-bold">✓</span>
-              Réponse sous 2h
+              Réponse rapide
             </span>
             <span className="flex items-center gap-2">
               <span className="w-5 h-5 rounded-full bg-plouf-lavande flex items-center justify-center text-plouf text-xs font-bold">✓</span>
@@ -261,13 +292,13 @@ export default function Home() {
 
           {/* Texte gauche */}
           <div>
-            <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">Plouf, c&apos;est quoi ?</p>
+            <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">Ce qu&apos;on fait concrètement</p>
             <h2 className="text-3xl font-bold text-gray-900 mb-6 font-title">
-              Vous n&apos;avez rien à faire.{" "}
-              <span className="underline decoration-wavy decoration-plouf underline-offset-4">C&apos;est tout.</span>
+              On vient. On traite.{" "}
+              <span className="underline decoration-wavy decoration-plouf underline-offset-4">Vous nagez.</span>
             </h2>
             <p className="text-gray-600 leading-relaxed mb-4">
-              Vous avez une piscine. Vous n&apos;avez pas le temps — ou l&apos;envie — de vous en occuper.
+              Vous avez une piscine. Vous n&apos;avez pas le temps, ou l&apos;envie, de vous en occuper.
             </p>
             <p className="text-gray-600 leading-relaxed mb-4">
               Un technicien Plouf passe chez vous selon le planning choisi. Il <strong>mesure le pH</strong>, ajoute
@@ -295,13 +326,13 @@ export default function Home() {
           <div>
             <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">Comment ça marche</p>
             <h2 className="text-3xl font-bold text-gray-900 mb-8 font-title">
-              3 étapes, zéro appel téléphonique
+              Trois étapes. Zéro effort de votre côté.
             </h2>
             <div className="space-y-4">
               {[
-                ["①", "Configurez en ligne", "Taille du bassin + fréquence → prix immédiat"],
-                ["②", "On vous rappelle sous 2h", "Pour organiser l'intervention au mieux"],
-                ["③", "On vient. On s'occupe.", "Rapport de passage. Paiement après."],
+                ["①", "Décrivez votre besoin en ligne en 2 minutes", "Taille du bassin + fréquence → prix immédiat"],
+                ["②", "On vous rappelle pour organiser le passage", "Pour organiser l'intervention au mieux"],
+                ["③", "On intervient. Vous profitez.", "Rapport de passage. Paiement après."],
               ].map(([n, t, d]) => (
                 <div key={n} className="flex gap-4 items-start p-4 rounded-xl border border-gray-100 bg-gradient-to-r from-brand-gris-tres-clair to-white hover:border-plouf/20 transition-colors">
                   <div className="w-10 h-10 rounded-full bg-plouf text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md shadow-plouf/30">
@@ -321,7 +352,7 @@ export default function Home() {
       {/* ── POURQUOI PLOUF — 5 colonnes ────────────────────────────────────── */}
       <section id="pourquoi-plouf" className="py-16 px-6 bg-gray-50/60 border-t border-gray-100">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-center text-2xl font-bold text-gray-900 mb-10 font-title">
+          <h2 className="text-center text-3xl font-bold text-gray-900 mb-10 font-title">
             Pourquoi choisir Plouf ?
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
@@ -330,7 +361,7 @@ export default function Home() {
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-              ), titre: "Rappel sous 2h", desc: "On vous contacte pour organiser l'intervention par téléphone." },
+              ), titre: "On vous rappelle", desc: "On vous contacte pour organiser l'intervention par téléphone." },
               { icon: (
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
@@ -347,6 +378,11 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
               ), titre: "On connaît votre secteur", desc: "Des équipes dédiées par zone, pas de perte de temps." },
+              { icon: (
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              ), titre: "Un interlocuteur dédié", desc: "Le même technicien à chaque passage. Il connaît votre bassin." },
             ].map((item) => (
               <div key={item.titre} className="flex flex-col items-start gap-3">
                 <div className="w-10 h-10 rounded-xl bg-plouf-lavande text-plouf flex items-center justify-center flex-shrink-0">
@@ -432,7 +468,7 @@ export default function Home() {
                   </div>
                   <p className="text-xs font-semibold text-plouf uppercase tracking-widest mb-1">Abonnement saisonnier</p>
                   <p className="text-2xl font-bold text-gray-900 font-title">Dès 120€<span className="text-base font-normal text-gray-500">/mois</span></p>
-                  <p className="text-xs text-gray-400 mt-0.5">Mai → octobre · sans engagement</p>
+                  <p className="text-xs text-gray-400 mt-0.5">sans engagement</p>
                 </div>
                 <ul className="space-y-1.5 mb-6 flex-1">
                   {[
@@ -468,7 +504,7 @@ export default function Home() {
             {[
               { avis: "Réservé un mardi. Mercredi piscine traitée. Jeudi rapport de passage reçu.", nom: "Marie L.", lieu: "Mérignac", file: "avis-marie.jpg" },
               { avis: "Le paiement après le passage m'a convaincu. J'ai pris l'abo pour la saison.", nom: "Thomas D.", lieu: "Le Bouscat", file: "avis-thomas.jpg" },
-              { avis: "Résidence secondaire au Médoc — Plouf passe, je reçois les photos. Parfait.", nom: "Sophie R.", lieu: "Pauillac", file: "avis-sophie.jpg" },
+              { avis: "Résidence secondaire au Médoc. Plouf passe, je reçois les photos. Parfait.", nom: "Sophie R.", lieu: "Pauillac", file: "avis-sophie.jpg" },
             ].map((item) => (
               <div key={item.nom} className="p-5 bg-white rounded-2xl border border-gray-100 shadow-sm">
                 <div className="text-yellow-400 text-sm mb-2">★★★★★</div>
@@ -501,7 +537,7 @@ export default function Home() {
             </h2>
             <p className="text-gray-600 text-sm leading-relaxed mb-5">
               Une piscine sans traitement quelques semaines devient verte.
-              Pas irrémédiable — mais pas avec un bidon du supermarché.
+              Pas irrémédiable, mais pas avec un bidon du supermarché.
             </p>
             <div className="grid grid-cols-2 gap-3 mb-6 max-w-sm">
               {[
@@ -518,7 +554,7 @@ export default function Home() {
               ))}
             </div>
             <Link href="/eau-verte" className="inline-block bg-plouf text-white font-bold px-8 py-4 rounded-xl hover:bg-plouf-dark transition-colors">
-              Envoyer une photo · rappel sous 2h →
+              Envoyer une photo · rappel rapide →
             </Link>
             <p className="text-xs text-gray-500 mt-3">Dès 150€ · Diagnostic gratuit</p>
           </div>
@@ -539,7 +575,7 @@ export default function Home() {
               Votre voisin a une piscine ? Recommandez Plouf : vous gagnez chacun <strong>20€ de remise</strong> sur votre prochaine facture.
             </p>
             <p className="text-xs text-gray-400 italic">
-              Plouf optimise ses tournées quand plusieurs maisons d&apos;une même rue sont clientes — moins de déplacements, service plus réactif.
+              Plouf optimise ses tournées quand plusieurs maisons d&apos;une même rue sont clientes. Moins de déplacements, service plus réactif.
             </p>
           </div>
 
@@ -547,8 +583,8 @@ export default function Home() {
           <div className="hidden md:block bg-gradient-to-br from-plouf-lavande to-plouf-glacier/40 rounded-2xl p-6 border border-plouf/10">
             <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">Zones desservies</p>
             <h3 className="font-bold text-gray-900 mb-5 font-title">Où on intervient</h3>
-            <div className="bg-white/70 rounded-xl h-36 flex items-center justify-center text-gray-400 text-sm mb-5 border border-plouf/10">
-              Gironde — Bordeaux · Médoc · Bassin
+            <div className="relative rounded-xl h-36 overflow-hidden mb-5 border border-plouf/10">
+              <Image src="/carte.jpg" alt="Zones d'intervention Plouf Piscines" fill className="object-cover" />
             </div>
             <div className="flex flex-wrap gap-2">
               {["Bordeaux Métropole", "Médoc", "Bassin d'Arcachon"].map(z => (
@@ -586,7 +622,7 @@ export default function Home() {
             <p className="text-xl text-plouf-eau mb-5 font-title">Plongez, on gère.</p>
             <div className="flex flex-wrap gap-5 text-gray-400 text-sm">
               <span>✓ Sans engagement</span>
-              <span>✓ Rappel sous 2h</span>
+              <span>✓ On vous rappelle</span>
               <span>✓ Paiement après intervention</span>
             </div>
           </div>
@@ -603,7 +639,7 @@ export default function Home() {
           <div>
             <Image src="/logo-blanc.png" alt="plouf!" width={70} height={32} className="object-contain mb-3" />
             <p className="text-gray-400 text-sm italic mb-1">Plongez, on gère.</p>
-            <p className="text-gray-500 text-xs leading-relaxed">Entretien · Traitement · Suivi saisonnier · Mai → Octobre</p>
+            <p className="text-gray-500 text-xs leading-relaxed">Entretien · Traitement · Suivi saisonnier</p>
           </div>
           <div>
             <p className="text-plouf-eau text-sm font-semibold mb-4">Zones</p>

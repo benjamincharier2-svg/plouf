@@ -3,9 +3,9 @@ import Image from "next/image";
 import Header from "@/components/Header";
 
 export const metadata = {
-  title: "Tarifs entretien piscine Bordeaux — Abonnements dès 120 €/mois",
+  title: "Tarifs entretien piscine Bordeaux. Abonnements dès 120 €/mois",
   description:
-    "Tarifs transparents : abonnements piscine dès 120 €/mois sur Bordeaux Métropole, Médoc et Arcachon. Interventions express dès 75 €. Produits inclus, sans surprise.",
+    "Tarifs transparents : abonnements piscine dès 120 €/mois sur Bordeaux Métropole et le Nord Médoc. Interventions express dès 75 €. Produits inclus, sans surprise.",
   alternates: { canonical: "https://ploufpiscines.fr/tarifs" },
 };
 
@@ -18,19 +18,25 @@ const ABONNEMENTS = [
 ];
 
 const PRESTATIONS = [
-  { label: "Passage ponctuel",        tarif: "dès 75 €",  duree: "~1h"     },
-  { label: "Nettoyage complet",       tarif: "120 €",     duree: "~2h"     },
-  { label: "Remise en route printemps", tarif: "250 €",   duree: "~3h"     },
-  { label: "Hivernage complet",       tarif: "290 €",     duree: "~2h"     },
-  { label: "Changement sable filtre", tarif: "220 €",     duree: "~2h"     },
-  { label: "Eau verte",               tarif: "dès 150 €", duree: "2 visites" },
+  { label: "Passage ponctuel",          desc: "Traitement eau uniquement (pH · chlore · algicide)",    tarif: "dès 75 €"  },
+  { label: "Nettoyage complet",         desc: "Fond · parois · skimmers · filtration",                 tarif: "dès 150 €" },
+  { label: "Remise en route printemps", desc: "Déshivernage · équilibrage · vérification filtre",      tarif: "dès 225 €" },
+  { label: "Hivernage complet",         desc: "Produits · protection · mise en veille",                tarif: "dès 225 €" },
+  { label: "Changement sable filtre",   desc: "Vidange + sable + remise en route",                     tarif: "250 €"     },
+  { label: "Option hiver",              desc: "1 passage/mois · Nov–Avr · Clients abonnés uniquement", tarif: "79 €/mois" },
+];
+
+const EAU_VERTE = [
+  { niveau: "Niveau 1", etat: "Eau verte · fond visible",        passages: "1 passage (J1)",       tarif: "dès 200 €" },
+  { niveau: "Niveau 2", etat: "Eau opaque · fond non visible",   passages: "2 passages (J1 + J3)", tarif: "dès 300 €" },
+  { niveau: "Niveau 3", etat: "Fond colonisé · vidange possible", passages: "3 passages (J1+J3+J5)", tarif: "dès 500 €" },
 ];
 
 const COMPARATIF = [
-  { critere: "Produits",            ponctuel: "En sus",             abo: "Inclus" },
-  { critere: "Eau verte",           ponctuel: "150 €+ si ça arrive", abo: "Ne se produit pas" },
-  { critere: "Rapport de passage",  ponctuel: "Non",                abo: "Inclus" },
-  { critere: "Coût sur 6 mois",     ponctuel: "Imprévisible",       abo: "Fixe dès 120 €/mois" },
+  { critere: "Produits",            ponctuel: "En sus",              abo: "Inclus" },
+  { critere: "Eau verte",           ponctuel: "dès 200 € si ça arrive", abo: "Ne se produit pas" },
+  { critere: "Rapport de passage",  ponctuel: "Non",                 abo: "Inclus" },
+  { critere: "Coût sur 6 mois",     ponctuel: "Imprévisible",        abo: "Fixe dès 120 €/mois" },
 ];
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
@@ -62,7 +68,7 @@ export default function TarifsPage() {
           <div className="relative z-10 max-w-2xl mx-auto">
             <p className="text-xs font-semibold text-white/60 uppercase tracking-widest mb-5">Tarifs</p>
             <h1 className="font-title font-bold text-4xl md:text-5xl text-white leading-tight mb-5">
-              Une fois ou tout l&apos;été —<br />
+              Une fois ou tout l&apos;été.<br />
               <span className="text-plouf-eau">la piscine parfaite dans les deux cas.</span>
             </h1>
             <p className="text-white/80 text-lg mb-10">
@@ -174,7 +180,7 @@ export default function TarifsPage() {
             </div>
 
             <p className="text-sm text-gray-400 italic mb-8">
-              Piscine au sel : +15% — renseignez-le à la réservation.
+              Piscine au sel : +15%, renseignez-le à la réservation.
             </p>
 
             {/* Inclus */}
@@ -230,8 +236,8 @@ export default function TarifsPage() {
             <div className="hidden md:block rounded-2xl overflow-hidden border border-gray-200 mb-5 shadow-sm">
               <div className="grid grid-cols-3 bg-gray-50 border-b border-gray-200">
                 <div className="px-6 py-3 text-sm font-semibold text-gray-500">Prestation</div>
+                <div className="px-6 py-3 text-sm font-semibold text-gray-500">Description</div>
                 <div className="px-6 py-3 text-sm font-semibold text-gray-500 text-right">Tarif</div>
-                <div className="px-6 py-3 text-sm font-semibold text-gray-500 text-right">Durée</div>
               </div>
               {PRESTATIONS.map((p, i) => (
                 <div
@@ -239,8 +245,8 @@ export default function TarifsPage() {
                   className={`grid grid-cols-3 border-b border-gray-50 last:border-0 ${i % 2 === 0 ? "bg-white" : "bg-gray-50/30"}`}
                 >
                   <div className="px-6 py-4 font-medium text-gray-900 text-sm">{p.label}</div>
+                  <div className="px-6 py-4 text-gray-500 text-sm">{p.desc}</div>
                   <div className="px-6 py-4 text-right font-bold text-plouf">{p.tarif}</div>
-                  <div className="px-6 py-4 text-right text-gray-400 text-sm">{p.duree}</div>
                 </div>
               ))}
             </div>
@@ -248,18 +254,18 @@ export default function TarifsPage() {
             {/* Mobile cards */}
             <div className="md:hidden space-y-2 mb-5">
               {PRESTATIONS.map(p => (
-                <div key={p.label} className="flex justify-between items-center bg-white border border-gray-100 rounded-xl px-4 py-3.5">
-                  <div>
+                <div key={p.label} className="bg-white border border-gray-100 rounded-xl px-4 py-3.5">
+                  <div className="flex justify-between items-start">
                     <p className="font-medium text-gray-900 text-sm">{p.label}</p>
-                    <p className="text-gray-400 text-xs">{p.duree}</p>
+                    <p className="font-bold text-plouf flex-shrink-0 ml-4">{p.tarif}</p>
                   </div>
-                  <p className="font-bold text-plouf flex-shrink-0 ml-4">{p.tarif}</p>
+                  <p className="text-gray-400 text-xs mt-1">{p.desc}</p>
                 </div>
               ))}
             </div>
 
             <p className="text-sm text-gray-400 mb-8">
-              Déplacement et produits inclus dans tous les tarifs.
+              Déplacement et produits inclus · Piscine au sel : +15%
             </p>
 
             <Link
@@ -268,6 +274,41 @@ export default function TarifsPage() {
             >
               Réserver une intervention →
             </Link>
+
+            {/* Eau verte */}
+            <div className="mt-16">
+              <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">Rattrapage eau verte</p>
+              <h3 className="font-title font-bold text-2xl text-gray-900 mb-2">Piscine verte ? On la remet en ordre.</h3>
+              <p className="text-gray-500 text-sm mb-6">Tarif selon l&apos;état de l&apos;eau et la taille du bassin.</p>
+
+              <div className="hidden md:block rounded-2xl overflow-hidden border border-gray-200 shadow-sm mb-3">
+                <div className="grid grid-cols-3 bg-gray-50 border-b border-gray-200">
+                  <div className="px-6 py-3 text-sm font-semibold text-gray-500">Niveau</div>
+                  <div className="px-6 py-3 text-sm font-semibold text-gray-500">État de l&apos;eau</div>
+                  <div className="px-6 py-3 text-sm font-semibold text-gray-500 text-right">Tarif</div>
+                </div>
+                {EAU_VERTE.map((e, i) => (
+                  <div key={e.niveau} className={`grid grid-cols-3 border-b border-gray-50 last:border-0 ${i % 2 === 0 ? "bg-white" : "bg-gray-50/30"}`}>
+                    <div className="px-6 py-4 font-medium text-gray-900 text-sm">{e.niveau}</div>
+                    <div className="px-6 py-4 text-gray-500 text-sm">{e.etat}<br/><span className="text-xs text-gray-400">{e.passages}</span></div>
+                    <div className="px-6 py-4 text-right font-bold text-plouf">{e.tarif}</div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="md:hidden space-y-2 mb-3">
+                {EAU_VERTE.map(e => (
+                  <div key={e.niveau} className="bg-white border border-gray-100 rounded-xl px-4 py-3.5">
+                    <div className="flex justify-between items-start">
+                      <p className="font-medium text-gray-900 text-sm">{e.niveau} — {e.etat}</p>
+                      <p className="font-bold text-plouf flex-shrink-0 ml-4">{e.tarif}</p>
+                    </div>
+                    <p className="text-gray-400 text-xs mt-1">{e.passages}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="text-sm text-gray-400">Piscine au sel : +15% · Tarif affiché pour petite piscine (&lt; 30 m³)</p>
+            </div>
 
           </div>
         </section>
@@ -278,11 +319,10 @@ export default function TarifsPage() {
 
             <div className="mb-10">
               <h2 className="font-title font-bold text-3xl text-gray-900 mb-2">
-                Votre intervention déduite du premier mois.
+                Ponctuel ou abonnement ?
               </h2>
               <p className="text-gray-500 text-base max-w-xl">
-                Vous testez aujourd&apos;hui. Vous basculez sur l&apos;abonnement dans le mois.
-                Le montant est déduit automatiquement. Zéro risque.
+                Comparez les deux formules et choisissez ce qui vous convient.
               </p>
             </div>
 
@@ -325,6 +365,30 @@ export default function TarifsPage() {
               </Link>
             </div>
 
+          </div>
+        </section>
+
+        {/* ══ BLOC HORS ZONE ════════════════════════════════════════════════════ */}
+        <section className="px-6 py-16 bg-white border-t border-gray-100">
+          <div className="max-w-4xl mx-auto">
+            <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">Zone d&apos;intervention</p>
+            <h2 className="font-title font-bold text-2xl text-gray-900 mb-2">Bordeaux Métropole · Nord Médoc</h2>
+            <p className="text-gray-500 text-sm mb-6 max-w-xl">
+              Notre zone principale couvre la Métropole bordelaise et le Nord Médoc. Vous êtes en dehors ? On intervient quand même — avec un supplément kilométrique.
+            </p>
+            <div className="bg-gray-50 border border-gray-200 rounded-2xl px-6 py-5 inline-flex items-center gap-4">
+              <div className="w-10 h-10 rounded-full bg-plouf-lavande flex items-center justify-center flex-shrink-0">
+                <svg className="w-5 h-5 text-plouf" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <div>
+                <p className="font-semibold text-gray-900 text-sm">Supplément hors zone</p>
+                <p className="text-gray-500 text-sm">+1,40 € TTC / km aller-retour</p>
+                <p className="text-gray-400 text-xs mt-0.5">Ex : Pauillac (~40 km A/R) = +56 € · Lesparre (~60 km A/R) = +84 €</p>
+              </div>
+            </div>
           </div>
         </section>
 

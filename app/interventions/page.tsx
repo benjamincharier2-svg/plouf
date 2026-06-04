@@ -3,19 +3,19 @@ import Link from "next/link";
 import Header from "@/components/Header";
 
 export const metadata = {
-  title: "Interventions piscine à Bordeaux — Hivernage, remise en route, dépannage",
+  title: "Interventions piscine à Bordeaux. Hivernage, remise en route, dépannage",
   description:
     "Hivernage, remise en route printemps, changement de sable, traitement eau verte à Bordeaux, Médoc et Arcachon. Tarifs fixes, technicien qualifié.",
   alternates: { canonical: "https://ploufpiscines.fr/interventions" },
 };
 
 const interventions = [
-  { label: "Passage ponctuel", desc: "Traitement eau + nettoyage bassin", tarif: "dès 75€", duree: "~1h" },
-  { label: "Nettoyage complet", desc: "Fond, parois, skimmers, filtration", tarif: "120€", duree: "~2h" },
-  { label: "Remise en route printemps", desc: "Déshivernage, équilibrage, vérif filtre", tarif: "250€", duree: "~3h" },
-  { label: "Hivernage complet", desc: "Produits hivernage, protection, mise en veille", tarif: "290€", duree: "~2h" },
-  { label: "Changement sable filtre", desc: "Vidange + sable + remise en route", tarif: "220€", duree: "~2h" },
-  { label: "Traitement eau verte", desc: "Choc, nettoyage, re-passage J+3", tarif: "dès 150€", duree: "2 visites" },
+  { label: "Passage ponctuel",          desc: "Traitement eau uniquement (pH · chlore · algicide)", tarif: "dès 75 €"  },
+  { label: "Nettoyage complet",         desc: "Fond · parois · skimmers · filtration",              tarif: "dès 150 €" },
+  { label: "Remise en route printemps", desc: "Déshivernage · équilibrage · vérification filtre",   tarif: "dès 225 €" },
+  { label: "Hivernage complet",         desc: "Produits · protection · mise en veille",              tarif: "dès 225 €" },
+  { label: "Changement sable filtre",   desc: "Vidange + sable + remise en route",                   tarif: "250 €"     },
+  { label: "Traitement eau verte",      desc: "Choc, nettoyage, re-passage J+3 (selon niveau)",     tarif: "dès 200 €" },
 ];
 
 export default function InterventionsPage() {
@@ -33,7 +33,7 @@ export default function InterventionsPage() {
             <span className="underline decoration-wavy decoration-plouf underline-offset-4">Sans abonnement.</span>
           </h1>
           <p className="text-gray-600 text-lg mb-12 max-w-xl leading-relaxed">
-            Vous avez besoin d&apos;une intervention précise — pas d&apos;un contrat
+            Vous avez besoin d&apos;une intervention précise, pas d&apos;un contrat
             pour toute la saison. C&apos;est possible. Les tarifs sont fixes et
             annoncés <strong>avant</strong> le passage.
           </p>
@@ -58,7 +58,6 @@ export default function InterventionsPage() {
                     </td>
                     <td className="px-5 py-4 text-gray-500 text-sm hidden md:table-cell">{item.desc}</td>
                     <td className="px-5 py-4 text-right font-bold text-plouf text-sm whitespace-nowrap">{item.tarif}</td>
-                    <td className="px-5 py-4 text-right text-gray-400 text-xs whitespace-nowrap hidden md:table-cell">{item.duree}</td>
                     <td className="px-5 py-4 text-right">
                       <Link
                         href="/reserver"
@@ -79,7 +78,7 @@ export default function InterventionsPage() {
             {[
               { icon: (<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg>), titre: "Paiement après", desc: "Pas de pré-paiement. Le débit Stripe se fait après l'intervention." },
               { icon: (<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>), titre: "Rapport de passage", desc: "Photos + mesures envoyés juste après. Même pour un passage unique." },
-              { icon: (<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" /></svg>), titre: "Bon d'achat saisonnier", desc: "Si vous basculez sur l'abonnement plus tard, cette intervention est déduite." },
+              { icon: (<svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" /></svg>), titre: "Essayez une fois. Si vous restez, on déduit.", desc: "Faites une intervention express. Si vous prenez l'abonnement ensuite, son montant est intégralement déduit." },
             ].map(item => (
               <div key={item.titre} className="bg-plouf-glacier/20 rounded-2xl p-5 border border-plouf-glacier">
                 <div className="w-10 h-10 rounded-xl bg-plouf-lavande text-plouf flex items-center justify-center mb-3">{item.icon}</div>

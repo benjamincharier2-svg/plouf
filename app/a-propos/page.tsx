@@ -3,7 +3,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 
 export const metadata = {
-  title: "À propos — Plouf Piscines, techniciens piscine à Bordeaux",
+  title: "À propos. Plouf Piscines, techniciens piscine à Bordeaux",
   description:
     "Plouf Piscines, c'est une équipe de techniciens locaux sur Bordeaux Métropole, le Médoc et le Bassin d'Arcachon. Entretien régulier, produits inclus, rapport après chaque passage.",
   alternates: { canonical: "https://ploufpiscines.fr/a-propos" },
@@ -23,7 +23,7 @@ const VALEURS = [
   {
     phrase: "On envoie les photos.",
     explication:
-      "Chaque technicien part avec un protocole : photos avant, photos après, relevés pH. Vous recevez un rapport de passage. Pas pour se justifier — parce que vous méritez de savoir ce qui se passe chez vous.",
+      "Chaque technicien part avec un protocole : photos avant, photos après, relevés pH. Vous recevez un rapport de passage. Pas pour se justifier, parce que vous méritez de savoir ce qui se passe chez vous.",
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -31,9 +31,9 @@ const VALEURS = [
     ),
   },
   {
-    phrase: "On rappelle sous 2h.",
+    phrase: "On rappelle vite.",
     explication:
-      "L'été n'attend pas. Une piscine peut virer en 48h si rien n'est fait. On s'est engagé sur 2 heures de délai de rappel — et on tient cet engagement parce qu'on a des équipes dédiées par secteur, pas un call center qui dispatche.",
+      "L'été n'attend pas. Une piscine peut virer rapidement si rien n'est fait. On s'est engagé sur un rappel rapide, et on tient cet engagement parce qu'on a des équipes dédiées par secteur, pas un call center qui dispatche.",
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -81,7 +81,7 @@ export default function AProposPage() {
           <div className="relative z-10 max-w-3xl mx-auto text-center">
             <p className="text-xs font-semibold text-white/60 uppercase tracking-widest mb-5">À propos</p>
             <h1 className="font-title font-bold text-4xl md:text-[3.2rem] text-white leading-tight mb-5">
-              Plouf, c&apos;est quoi ?
+              Un service d&apos;entretien de piscine. Fait sérieusement.
             </h1>
             <p className="text-white/80 text-xl max-w-xl mx-auto leading-relaxed">
               Un service d&apos;entretien de piscines à domicile, né à Bordeaux.
@@ -127,7 +127,7 @@ export default function AProposPage() {
               {/* Badge flottant */}
               <div className="absolute -bottom-5 -left-5 bg-white rounded-2xl shadow-lg px-5 py-4 border border-gray-100">
                 <p className="text-xs text-gray-400 mb-0.5">Secteur d&apos;activité</p>
-                <p className="font-bold text-gray-900 text-sm">Gironde — Bordeaux, Médoc,<br />Bassin d&apos;Arcachon</p>
+                <p className="font-bold text-gray-900 text-sm">Gironde. Bordeaux, Médoc,<br />Bassin d&apos;Arcachon</p>
               </div>
             </div>
 
@@ -159,7 +159,7 @@ export default function AProposPage() {
                 {
                   num: "02",
                   titre: "On traite votre eau",
-                  texte: "Mesure du pH, du chlore libre, du TAC. Ajout des produits nécessaires. Nettoyage du bassin, des skimmers, contrôle du filtre. Les produits sont apportés — rien à stocker chez vous.",
+                  texte: "Mesure du pH, du chlore libre, du TAC. Ajout des produits nécessaires. Nettoyage du bassin, des skimmers, contrôle du filtre. Les produits sont apportés, rien à stocker chez vous.",
                 },
                 {
                   num: "03",
@@ -187,7 +187,7 @@ export default function AProposPage() {
               Une équipe dédiée par secteur
             </h2>
             <p className="text-gray-500 text-base mb-12 max-w-xl">
-              On n&apos;envoie pas n&apos;importe qui n&apos;importe où. Chaque technicien a sa zone — il la connaît, il y est tous les jours. C&apos;est la même personne qui passe chez vous à chaque visite.
+              On n&apos;envoie pas n&apos;importe qui n&apos;importe où. Chaque technicien a sa zone, il la connaît, il y est tous les jours. C&apos;est la même personne qui passe chez vous à chaque visite.
             </p>
 
             <div className="grid md:grid-cols-3 gap-6 mb-10">
@@ -217,7 +217,7 @@ export default function AProposPage() {
 
             <div className="bg-plouf-lavande/20 border border-plouf/10 rounded-2xl px-6 py-4 text-sm text-gray-600">
               <strong className="text-gray-800">Votre commune n&apos;est pas dans la liste ?</strong>{" "}
-              Écrivez-nous à <a href="mailto:contact@ploufpiscines.fr" className="text-plouf underline underline-offset-2">contact@ploufpiscines.fr</a> — on étudie les extensions de zone régulièrement.
+              Écrivez-nous à <a href="mailto:contact@ploufpiscines.fr" className="text-plouf underline underline-offset-2">contact@ploufpiscines.fr</a>, on étudie les extensions de zone régulièrement.
             </div>
 
           </div>
@@ -263,7 +263,7 @@ export default function AProposPage() {
                 Une question ? Une piscine à entretenir ?
               </h2>
               <p className="text-gray-500 mb-8 max-w-md mx-auto">
-                On répond à tous les messages. Réservation, devis, question technique — écrivez, on revient vite.
+                On répond à tous les messages. Réservation, devis, question technique. Écrivez, on revient vite.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link

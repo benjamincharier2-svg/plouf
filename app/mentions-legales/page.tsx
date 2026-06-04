@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 
 export const metadata = {
-  title: "Mentions légales & CGV — Plouf Piscines",
+  title: "Mentions légales & CGV. Plouf Piscines",
 };
 
 export default function MentionsLegalesPage() {
@@ -30,7 +30,7 @@ export default function MentionsLegalesPage() {
               <p><strong>Siège social :</strong> 15 rue Thiac, 33000 Bordeaux</p>
               <p><strong>Dirigeants :</strong> Bastien Beaubat, Alexandre Viallet</p>
               <p><strong>Email :</strong> contact@ploufpiscines.fr</p>
-              <p><strong>Hébergeur :</strong> Vercel Inc. — 440 N Barranca Ave #4133, Covina, CA 91723, USA</p>
+              <p><strong>Hébergeur :</strong> Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA</p>
             </div>
           </section>
 
@@ -84,7 +84,7 @@ export default function MentionsLegalesPage() {
             <h3 className="text-lg font-semibold text-gray-800 mt-6 mb-2">2.6 Zone géographique</h3>
             <p className="text-gray-600 text-sm leading-relaxed">
               Les services de Plouf Piscines sont disponibles sur Bordeaux Métropole et le secteur
-              Médoc — Bassin d'Arcachon. Toute commande hors zone sera annulée et la pré-autorisation
+              Médoc, Bassin d'Arcachon. Toute commande hors zone sera annulée et la pré-autorisation
               levée sans frais.
             </p>
 

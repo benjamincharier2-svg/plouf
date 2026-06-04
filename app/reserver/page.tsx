@@ -282,7 +282,7 @@ function StepType({ form, update, goNext }: {
   return (
     <>
       <Question>Quel type d&apos;intervention cherchez-vous ?</Question>
-      <Hint>Aucun paiement maintenant, on vous rappelle sous 2h.</Hint>
+      <Hint>Aucun paiement maintenant, on vous rappelle rapidement.</Hint>
 
       <div className="space-y-3">
 
@@ -308,14 +308,6 @@ function StepType({ form, update, goNext }: {
 
       </div>
 
-      {/* Bulle rassurante */}
-      <div className="mt-5 flex gap-3 bg-plouf-glacier/30 border border-plouf-glacier rounded-2xl px-4 py-3.5">
-        <p className="text-xs text-gray-600 leading-relaxed">
-          <strong className="text-gray-800">Pas sûr·e de vous engager ?</strong>{" "}
-          Commencez par une intervention express. Si vous optez ensuite pour l&apos;abonnement,
-          son montant est <strong className="text-plouf">intégralement déduit</strong>. Pas d&apos;argent perdu.
-        </p>
-      </div>
     </>
   )
 }
@@ -557,7 +549,7 @@ function StepCoordonnees({ form, update, goBack, onSubmit, loading, erreur }: {
   return (
     <>
       <Question>Vos coordonnées</Question>
-      <Hint>On vous rappelle sous 2h pour confirmer le premier passage.</Hint>
+      <Hint>On vous rappelle pour confirmer le premier passage.</Hint>
 
       <div className="space-y-3">
         <div className="grid grid-cols-2 gap-3">
@@ -592,7 +584,7 @@ function StepCoordonnees({ form, update, goBack, onSubmit, loading, erreur }: {
       </button>
 
       <p className="text-xs text-center text-gray-400 mt-3">
-        Aucun paiement maintenant. On vous rappelle sous 2h.
+        Aucun paiement maintenant. On vous rappelle rapidement.
       </p>
 
       <BtnBack onClick={() => goBack("zone")} />
@@ -603,6 +595,19 @@ function StepCoordonnees({ form, update, goBack, onSubmit, loading, erreur }: {
 // ─── Écran de succès ──────────────────────────────────────────────────────────
 
 function SuccessScreen({ prix, isAbo, prenom }: { prix: number | null; isAbo: boolean; prenom: string }) {
+  // Meta Pixel — événement Lead à la soumission du formulaire
+  if (typeof window !== "undefined") {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const w = window as any;
+    if (typeof w.fbq === "function") w.fbq("track", "Lead");
+    // Google Ads — conversion "Envoi de formulaire de lead"
+    if (typeof w.gtag === "function") w.gtag("event", "conversion", {
+      send_to: "AW-18164536899/BXIgCNGhqLAcEMOsw9VD",
+      value: 1.0,
+      currency: "EUR",
+    });
+  }
+
   return (
     <div className="min-h-screen flex items-center justify-center px-6"
       style={{ background: "linear-gradient(135deg, #E7EBFF 0%, #D6F2F7 55%, #eaf7fb 100%)" }}
@@ -615,7 +620,7 @@ function SuccessScreen({ prix, isAbo, prenom }: { prix: number | null; isAbo: bo
         </div>
         <h1 className="font-title font-bold text-2xl text-gray-900 mb-3">Demande envoyée !</h1>
         <p className="text-gray-500 leading-relaxed mb-6">
-          Merci {prenom}. Notre équipe vous rappelle <strong>sous 2h</strong> pour confirmer le premier passage.
+          Merci {prenom}. Notre équipe vous rappelle <strong>rapidement</strong> pour confirmer le premier passage.
         </p>
 
         {isAbo && prix && (
@@ -630,7 +635,7 @@ function SuccessScreen({ prix, isAbo, prenom }: { prix: number | null; isAbo: bo
 
         <div className="space-y-3 text-sm text-left mb-8 bg-gray-50 rounded-2xl p-5">
           {[
-            ["1", "On vous rappelle", "Sous 2h, par téléphone."],
+            ["1", "On vous rappelle", "Rapidement, par téléphone."],
             ["2", "On fixe le premier passage", "Date, heure, accès. On s'organise avec vous."],
             ["3", "Le technicien arrive", "Vous n'avez rien à préparer."],
           ].map(([n, t, d]) => (

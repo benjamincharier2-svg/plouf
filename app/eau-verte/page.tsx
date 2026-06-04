@@ -82,7 +82,7 @@ export default function EauVertePage() {
           {/* Urgence badge */}
           <div className="inline-flex items-center gap-2 bg-green-50 border border-green-200 text-green-800 text-sm font-medium px-4 py-2 rounded-full mb-8">
             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-            On vous rappelle sous 2h
+            On vous rappelle
           </div>
 
           {/* Titre */}
@@ -93,14 +93,14 @@ export default function EauVertePage() {
 
           <p className="text-gray-600 text-lg mb-10 leading-relaxed">
             L&apos;eau verte est une urgence — algues, bactéries, risque sanitaire.
-            Décrivez-nous votre situation et notre équipe vous contacte sous 2h
+            Décrivez-nous votre situation et notre équipe vous contacte rapidement
             pour organiser une intervention rapide.
           </p>
 
           {/* Carte infos */}
           <div className="grid grid-cols-3 gap-4 mb-10">
             {[
-              { emoji: "⚡", label: "Intervention", value: "sous 48h" },
+              { emoji: "⚡", label: "Intervention", value: "rapide" },
               { emoji: "🧪", label: "Traitement", value: "choc + algicide" },
               { emoji: "✅", label: "Résultat", value: "garanti" },
             ].map((item) => (
@@ -119,7 +119,7 @@ export default function EauVertePage() {
               <h2 className="text-xl font-bold text-gray-900 mb-2 font-title">Message reçu !</h2>
               <p className="text-gray-600 mb-6">
                 Notre équipe va analyser votre situation et vous contacte{" "}
-                <strong>sous 2h</strong> pour organiser l&apos;intervention.
+                <strong>rapidement</strong> pour organiser l&apos;intervention.
               </p>
               <Link
                 href="/"
@@ -251,7 +251,7 @@ export default function EauVertePage() {
                 disabled={loading}
                 className="w-full bg-plouf text-white font-bold py-4 rounded-xl hover:bg-plouf-dark transition-colors disabled:opacity-50 text-lg"
               >
-                {loading ? "Envoi en cours..." : "Envoyer — on vous rappelle sous 2h"}
+                {loading ? "Envoi en cours..." : "Envoyer — on vous rappelle"}
               </button>
 
               <p className="text-xs text-gray-400 text-center">

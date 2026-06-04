@@ -10,6 +10,7 @@ const ITEMS: { avant: string | null; apres: string | null; label: string }[] = [
   { avant: "/avant-1.jpg", apres: "/apres-1.jpg", label: "Eau verte → cristalline" },
   { avant: "/avant-2.jpg", apres: "/apres-2.jpg", label: "Remise en route printemps" },
   { avant: "/avant-3.jpg", apres: "/apres-3.jpg", label: "Hivernage → saison" },
+  { avant: "/avant-4.jpg", apres: "/apres-4.jpg", label: "Nettoyage complet" },
 ]
 
 // Dupliquer pour le défilement sans couture
@@ -31,7 +32,7 @@ function PhotoSlot({
   bg: string
 }) {
   return (
-    <div className="relative w-[110px] h-[140px] rounded-xl overflow-hidden flex-shrink-0">
+    <div className="relative w-[160px] h-[200px] rounded-xl overflow-hidden flex-shrink-0">
       {src ? (
         <Image src={src} alt={alt} fill className="object-cover" />
       ) : (
@@ -50,36 +51,38 @@ function PhotoSlot({
 
 export default function AvantApresCarousel() {
   return (
-    <section className="py-12 bg-white overflow-hidden border-y border-gray-100">
-      {/* Titre */}
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between mb-8">
-        <div>
-          <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">
-            Résultats réels
+    <section className="py-12 bg-white border-y border-gray-100">
+
+      {/* Titre — aligné avec le reste de la page */}
+      <div className="px-6 mb-8">
+        <div className="max-w-6xl mx-auto flex items-center justify-between">
+          <div>
+            <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">
+              Résultats réels
+            </p>
+            <h2 className="font-title font-bold text-3xl text-gray-900">
+              Avant{" "}
+              <span className="text-plouf">·</span>{" "}
+              Après
+            </h2>
+          </div>
+          <p className="text-gray-400 text-sm hidden md:block">
+            Chaque intervention laisse une trace.
           </p>
-          <h2 className="font-title font-bold text-xl text-gray-900">
-            Avant{" "}
-            <span className="text-plouf">·</span>{" "}
-            Après
-          </h2>
         </div>
-        <p className="text-gray-400 text-sm hidden md:block">
-          Chaque intervention laisse une trace.
-        </p>
       </div>
 
-      {/* Piste défilante */}
-      <div className="relative">
+      {/* Piste défilante — overflow-hidden séparé du titre */}
+      <div className="relative overflow-hidden">
         {/* Fondu gauche */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to right, #ffffff, transparent)" }}
+        <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
+          style={{ background: "linear-gradient(to right, #ffffff 40%, transparent)" }}
         />
         {/* Fondu droite */}
-        <div className="absolute right-0 top-0 bottom-0 w-20 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to left, #ffffff, transparent)" }}
+        <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
+          style={{ background: "linear-gradient(to left, #ffffff 40%, transparent)" }}
         />
 
-        {/* Animation CSS inline — pas besoin de modifier tailwind.config */}
         <style>{`
           @keyframes plouf-scroll {
             0%   { transform: translateX(0); }
@@ -110,13 +113,10 @@ export default function AvantApresCarousel() {
                 />
 
                 {/* Flèche centrale */}
-                <div className="flex flex-col items-center gap-1 px-1">
+                <div className="px-1">
                   <svg className="w-5 h-5 text-plouf/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
-                  <p className="text-[9px] text-gray-400 text-center leading-tight max-w-[50px]">
-                    {item.label}
-                  </p>
                 </div>
 
                 <PhotoSlot

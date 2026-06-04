@@ -10,11 +10,11 @@ const questions = [
   },
   {
     q: "Que se passe-t-il si je ne suis pas content du passage ?",
-    a: "Vous nous écrivez sous 48h. On repasse gratuitement ou on rembourse — au choix. Aucune discussion.",
+    a: "Vous nous écrivez rapidement. On repasse gratuitement ou on rembourse, au choix. Aucune discussion.",
   },
   {
     q: "Pourquoi le paiement après ?",
-    a: "Parce qu'on a confiance dans notre service — et qu'on veut que vous l'ayez aussi. Stripe pré-autorise votre carte à la réservation, mais ne débite qu'après l'intervention.",
+    a: "Parce qu'on a confiance dans notre service, et qu'on veut que vous l'ayez aussi. Stripe pré-autorise votre carte à la réservation, mais ne débite qu'après l'intervention.",
   },
   {
     q: "Combien de temps dure un passage ?",
@@ -22,7 +22,7 @@ const questions = [
   },
   {
     q: "Mon eau est trouble, c'est grave ?",
-    a: "Non, ça se rattrape vite. Mentionnez-le à la réservation, on prévoit le produit nécessaire. Si vous n'êtes pas sûr, écrivez-nous une photo — on évalue gratuitement.",
+    a: "Non, ça se rattrape vite. Mentionnez-le à la réservation, on prévoit le produit nécessaire. Si vous n'êtes pas sûr, écrivez-nous une photo, on évalue gratuitement.",
   },
   {
     q: "Vous intervenez hors saison ?",
@@ -30,7 +30,7 @@ const questions = [
   },
   {
     q: "Et si mon technicien attitré est malade ?",
-    a: "Un binôme prend le relais — vous êtes prévenu(e) par SMS. Le rapport reste identique, la qualité aussi.",
+    a: "Un binôme prend le relais, vous êtes prévenu(e) par SMS. Le rapport reste identique, la qualité aussi.",
   },
 ];
 
@@ -90,7 +90,7 @@ export default function FAQPage() {
           <div className="bg-plouf-lavande border border-plouf/20 rounded-2xl p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
               <h2 className="font-bold text-gray-900 text-xl mb-1 font-title">Pas trouvé votre réponse ?</h2>
-              <p className="text-gray-500 text-sm">On répond sous 2h, même le week-end.</p>
+              <p className="text-gray-500 text-sm">On répond rapidement, même le week-end.</p>
             </div>
             <div className="flex gap-3">
               <a

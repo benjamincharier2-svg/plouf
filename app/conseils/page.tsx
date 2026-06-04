@@ -4,7 +4,7 @@ import ConseilsFaq from "@/components/ConseilsFaq";
 import Header from "@/components/Header";
 
 export const metadata = {
-  title: "Conseils d'entretien piscine — Plouf Piscines",
+  title: "Conseils d'entretien piscine. Plouf Piscines",
   description: "Guide complet pour entretenir sa piscine : pH, chlore, filtration, calendrier de la saison, erreurs fréquentes, chlore vs sel. Par les techniciens Plouf.",
 };
 
@@ -28,7 +28,7 @@ const CALENDRIER = [
     tag: "Montée en température",
     tagColor: "bg-yellow-100 text-yellow-700",
     actions: [
-      "Filtrer au minimum 8h/jour — augmenter si la température dépasse 25°C",
+      "Filtrer au minimum 8h/jour, augmenter si la température dépasse 25°C",
       "Vérifier le pH deux fois par semaine (idéal : 7,2 – 7,6)",
       "Ajouter un algicide de début de saison",
       "Nettoyer les skimmers et paniers de filtration chaque semaine",
@@ -64,7 +64,7 @@ const CALENDRIER = [
 const ERREURS = [
   {
     probleme: "Eau verte",
-    cause: "Prolifération d'algues due à un taux de chlore insuffisant ou une filtration trop courte — souvent après un orage ou une période chaude sans surveillance.",
+    cause: "Prolifération d'algues due à un taux de chlore insuffisant ou une filtration trop courte, souvent après un orage ou une période chaude sans surveillance.",
     solution: "Traitement choc (hyperchlorination), brossage des parois, filtration 24h/24, puis floculation. Compter 2 passages espacés de 3 jours.",
     gravite: "Urgent",
     graviteColor: "bg-red-100 text-red-700",
@@ -72,8 +72,8 @@ const ERREURS = [
   },
   {
     probleme: "pH trop bas (< 7,0)",
-    cause: "Excès de produits acides, forte pluie ou transpiration des baigneurs. L'eau devient corrosive — elle attaque les joints, le liner et les yeux.",
-    solution: "Ajouter du pH+. Corriger toujours le pH avant d'ajuster le chlore — sinon le traitement ne sert à rien.",
+    cause: "Excès de produits acides, forte pluie ou transpiration des baigneurs. L'eau devient corrosive, elle attaque les joints, le liner et les yeux.",
+    solution: "Ajouter du pH+. Corriger toujours le pH avant d'ajuster le chlore, sinon le traitement ne sert à rien.",
     gravite: "À corriger vite",
     graviteColor: "bg-orange-100 text-orange-700",
     icon: "⬇️",
@@ -81,7 +81,7 @@ const ERREURS = [
   {
     probleme: "pH trop haut (> 7,8)",
     cause: "Excès de produits alcalins, évaporation intense en été. Le chlore perd jusqu'à 80% de son efficacité au-dessus de 7,8.",
-    solution: "Ajouter du pH-. Vérifier le TAC — un TAC trop élevé empêche le pH de descendre durablement.",
+    solution: "Ajouter du pH-. Vérifier le TAC, un TAC trop élevé empêche le pH de descendre durablement.",
     gravite: "À corriger vite",
     graviteColor: "bg-orange-100 text-orange-700",
     icon: "⬆️",
@@ -134,7 +134,7 @@ export default function ConseilsPage() {
               <span className="text-plouf-eau">Et pourquoi la plupart abandonnent.</span>
             </h1>
             <p className="text-white/75 text-lg max-w-xl mx-auto">
-              Guide pratique rédigé par les techniciens Plouf — ce qu&apos;ils voient chaque semaine sur le terrain.
+              Guide pratique rédigé par les techniciens Plouf. Ce qu&apos;ils voient chaque semaine sur le terrain.
             </p>
           </div>
         </section>
@@ -162,7 +162,7 @@ export default function ConseilsPage() {
                 <div>
                   <p className="font-semibold text-gray-900 mb-2">L&apos;équilibre de tout le reste</p>
                   <p className="text-gray-500 text-sm leading-relaxed mb-3">
-                    Le pH mesure l&apos;acidité de l&apos;eau. En dessous de 7,0, l&apos;eau attaque les équipements et irrite la peau et les yeux. Au-dessus de 7,8, le chlore perd jusqu&apos;à 80% de son efficacité — vous pouvez ajouter autant de produit que vous voulez, ça ne servira à rien.
+                    Le pH mesure l&apos;acidité de l&apos;eau. En dessous de 7,0, l&apos;eau attaque les équipements et irrite la peau et les yeux. Au-dessus de 7,8, le chlore perd jusqu&apos;à 80% de son efficacité. Vous pouvez ajouter autant de produit que vous voulez, ça ne servira à rien.
                   </p>
                   <p className="text-gray-500 text-sm leading-relaxed">
                     Le pH varie naturellement avec la température, la pluie, la transpiration des baigneurs et l&apos;évaporation. Il faut le tester <strong className="text-gray-700">au minimum deux fois par semaine</strong> en saison.
@@ -179,7 +179,7 @@ export default function ConseilsPage() {
                 <div>
                   <p className="font-semibold text-gray-900 mb-2">Chlore libre vs chlore combiné</p>
                   <p className="text-gray-500 text-sm leading-relaxed mb-3">
-                    Le <strong className="text-gray-700">chlore libre</strong> est actif — il détruit les bactéries et les algues. Le <strong className="text-gray-700">chlore combiné</strong> (chloramines) est déjà "usé" et ne désinfecte plus rien. C&apos;est lui qui provoque l&apos;odeur de chlore forte et les yeux rouges — paradoxalement, une piscine qui sent trop le chlore manque souvent de chlore libre.
+                    Le <strong className="text-gray-700">chlore libre</strong> est actif, il détruit les bactéries et les algues. Le <strong className="text-gray-700">chlore combiné</strong> (chloramines) est déjà "usé" et ne désinfecte plus rien. C&apos;est lui qui provoque l&apos;odeur de chlore forte et les yeux rouges. Paradoxalement, une piscine qui sent trop le chlore manque souvent de chlore libre.
                   </p>
                   <p className="text-gray-500 text-sm leading-relaxed">
                     Si le chlore combiné dépasse 0,6 mg/L, il faut réaliser un <strong className="text-gray-700">traitement choc</strong> pour le casser.
@@ -196,10 +196,10 @@ export default function ConseilsPage() {
                 <div>
                   <p className="font-semibold text-gray-900 mb-2">La règle simple de la filtration</p>
                   <p className="text-gray-500 text-sm leading-relaxed mb-3">
-                    Divisez la température de l&apos;eau par 2 — c&apos;est le nombre d&apos;heures minimum de filtration par jour. 28°C → 14h. Cette règle vaut pour une utilisation normale. Lors d&apos;une forte utilisation ou d&apos;un traitement choc, passez en 24h/24.
+                    Divisez la température de l&apos;eau par 2 : c&apos;est le nombre d&apos;heures minimum de filtration par jour. 28°C → 14h. Cette règle vaut pour une utilisation normale. Lors d&apos;une forte utilisation ou d&apos;un traitement choc, passez en 24h/24.
                   </p>
                   <p className="text-gray-500 text-sm leading-relaxed">
-                    Programmez votre filtration <strong className="text-gray-700">en deux fois</strong> : une partie le matin tôt (avant le soleil), une partie en soirée. Évitez de tout mettre en plein après-midi — la chaleur dégrade le chlore avant qu&apos;il ait eu le temps d&apos;agir.
+                    Programmez votre filtration <strong className="text-gray-700">en deux fois</strong> : une partie le matin tôt (avant le soleil), une partie en soirée. Évitez de tout mettre en plein après-midi. La chaleur dégrade le chlore avant qu&apos;il ait eu le temps d&apos;agir.
                   </p>
                 </div>
               </div>
@@ -289,7 +289,7 @@ export default function ConseilsPage() {
 
             <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">Problèmes courants</p>
             <h2 className="font-title font-bold text-3xl text-gray-900 mb-3">
-              Les erreurs les plus fréquentes — et comment les éviter
+              Les erreurs les plus fréquentes, et comment les éviter
             </h2>
             <p className="text-gray-500 text-base mb-12 max-w-xl">
               Chaque semaine, nos techniciens voient les mêmes situations. Voici les diagnostics et les solutions.
@@ -323,7 +323,7 @@ export default function ConseilsPage() {
             <div className="mt-10 flex items-center gap-4 p-5 bg-red-50 rounded-2xl border border-red-100">
               <div className="flex-1">
                 <p className="text-sm font-medium text-gray-700">Eau verte en ce moment ?</p>
-                <p className="text-xs text-gray-400 mt-0.5">Appelez-nous ou réservez une intervention — on passe sous 48h avec le matériel adapté.</p>
+                <p className="text-xs text-gray-400 mt-0.5">Appelez-nous ou réservez une intervention, on passe rapidement avec le matériel adapté.</p>
               </div>
               <Link
                 href="/reserver"
@@ -403,7 +403,7 @@ export default function ConseilsPage() {
                     <p className="text-xs font-semibold text-emerald-600 uppercase tracking-wide mb-2">Avantages</p>
                     <ul className="space-y-1.5">
                       {[
-                        "Production automatique de chlore — moins d'interventions manuelles",
+                        "Production automatique de chlore, moins d'interventions manuelles",
                         "Eau plus douce sur la peau et les yeux",
                         "Coût des produits réduit sur la durée",
                         "Moins d'odeur de chlore si bien réglé",
@@ -436,7 +436,7 @@ export default function ConseilsPage() {
             <div className="p-6 bg-white rounded-2xl border-l-4 border-plouf shadow-sm">
               <p className="font-semibold text-gray-900 mb-2">Le verdict honnête</p>
               <p className="text-gray-500 text-sm leading-relaxed">
-                Les deux se gèrent très bien — à condition d&apos;être <strong className="text-gray-700">régulier</strong>.
+                Les deux se gèrent très bien, à condition d&apos;être <strong className="text-gray-700">régulier</strong>.
                 Le sel simplifie la production de chlore mais ne supprime pas le suivi du pH.
                 Si vous manquez de temps ou de rigueur, aucun des deux systèmes ne s&apos;entretient seul.
                 C&apos;est là qu&apos;un suivi professionnel fait la différence.
@@ -447,7 +447,7 @@ export default function ConseilsPage() {
             <div className="mt-8 flex items-center gap-4 p-5 bg-plouf-lavande/20 rounded-2xl border border-plouf/10">
               <div className="flex-1">
                 <p className="text-sm font-medium text-gray-700">Plouf intervient sur les deux types de traitement</p>
-                <p className="text-xs text-gray-400 mt-0.5">Chlore ou sel — indiquez-le à la réservation. Le tarif sel est majoré de 15%.</p>
+                <p className="text-xs text-gray-400 mt-0.5">Chlore ou sel, indiquez-le à la réservation. Le tarif sel est majoré de 15%.</p>
               </div>
               <Link
                 href="/reserver"
@@ -482,7 +482,7 @@ export default function ConseilsPage() {
               Vous savez maintenant ce qu&apos;implique<br />un entretien sérieux.
             </h2>
             <p className="text-plouf-eau text-xl font-title mb-8">
-              Si vous préférez qu&apos;on s&apos;en occupe —
+              Si vous préférez qu&apos;on s&apos;en occupe :
             </p>
             <Link
               href="/reserver"
@@ -490,7 +490,7 @@ export default function ConseilsPage() {
             >
               Devis en 30 secondes →
             </Link>
-            <p className="text-white/40 text-xs mt-5">Sans engagement · Paiement après intervention · Rappel sous 2h</p>
+            <p className="text-white/40 text-xs mt-5">Sans engagement · Paiement après intervention · On vous rappelle</p>
           </div>
         </section>
 

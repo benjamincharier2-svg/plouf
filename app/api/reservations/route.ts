@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { sendAdminNotification, sendClientConfirmation, type ReservationPayload } from "@/lib/emails";
+import { supabaseAdmin } from "@/lib/supabase/server";
 
 export async function POST(req: NextRequest) {
   try {
@@ -33,6 +34,28 @@ export async function POST(req: NextRequest) {
       frequence:       frequence       || null,
       montant_mensuel: montant_mensuel || null,
     };
+
+    // ── Sauvegarde Supabase ──────────────────────────────────────────────────
+    const { error: dbError } = await supabaseAdmin
+      .from("reservations")
+      .insert({
+        statut:           "en_attente",
+        type_intervention,
+        prenom, nom, email, telephone,
+        adresse, ville, code_postal,
+        zone,
+        notes:            notes            || null,
+        etat_eau:         etat_eau         || null,
+        taille_bassin:    taille_bassin    || null,
+        type_traitement:  type_traitement  || null,
+        frequence:        frequence        || null,
+        montant_mensuel:  montant_mensuel  || null,
+      });
+
+    if (dbError) {
+      console.error("Supabase insert error:", dbError);
+      // On continue quand même pour envoyer les emails
+    }
 
     // ── Envoi emails ─────────────────────────────────────────────────────────
     await Promise.all([
