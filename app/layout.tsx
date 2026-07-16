@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins, Inter } from "next/font/google";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -89,6 +90,7 @@ export default function RootLayout({
     <html lang="fr" className={`${poppins.variable} ${inter.variable}`}>
       <body className="antialiased bg-white text-brand-anthracite font-sans overflow-x-hidden">
         {children}
+        <Analytics />
 
         {/* Google Ads + Analytics tag */}
         <Script
